@@ -1,0 +1,52 @@
+@font-face {
+  font-family: 'Agrandir';
+  src: url('/fonts/Agrandir-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Agrandir';
+  src: url('/fonts/Agrandir-Heavy.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sauce';
+  src: url('/fonts/OpenSauce-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sauce';
+  src: url('/fonts/OpenSauce-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-black: #1C1C1C;
+  --color-coral: #FF5757;
+  --color-salmon: #FF8C69;
+  --color-peach: #FFB088;
+  --color-apricot: #FFD4A7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sauce', sans-serif;
+  color: var(--color-black);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Agrandir', sans-serif;
+}
