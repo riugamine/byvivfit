@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Agrandir';
-  src: url('/fonts/Agrandir-Light.woff2') format('woff2');
+  src: url('/fonts/Agrandir-light.otf') format('otf');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: 'Agrandir';
-  src: url('/fonts/Agrandir-Heavy.woff2') format('woff2');
+  src: url('/fonts/Agrandir-heavy.otf') format('otf');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: 'Open Sauce';
-  src: url('/fonts/OpenSauce-Light.woff2') format('woff2');
+  src: url('/fonts/OpenSauceOne-Light.ttf') format('ttf');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: 'Open Sauce';
-  src: url('/fonts/OpenSauce-Black.woff2') format('woff2');
+  src: url('/fonts/OpenSauceOne-Black.ttf') format('ttf');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
