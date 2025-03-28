@@ -10,6 +10,7 @@ import { Image } from 'astro:assets';
         alt="byVivifit Logo" 
         width={150} 
         height={50} 
+        class="w-32 md:w-auto"
       />
     </a>
     
@@ -22,7 +23,7 @@ import { Image } from 'astro:assets';
       <a href="/faq" class="text-black hover:text-coral transition duration-300 font-agrandir">FAQ</a>
     </nav>
     
-    <div class="flex items-center space-x-4">
+    <div class="hidden md:flex items-center space-x-4">
       <a href="https://www.instagram.com/byvivifit/" target="_blank" rel="noopener noreferrer" class="text-black hover:text-coral transition duration-300">
         <i class="fab fa-instagram text-xl"></i>
       </a>
@@ -34,39 +35,95 @@ import { Image } from 'astro:assets';
       </a>
     </div>
     
-    <button class="md:hidden text-black" id="mobile-menu-button">
-      <i class="fas fa-bars text-2xl"></i>
+    <button class="md:hidden text-black p-2" id="mobile-menu-button" aria-label="Menu">
+      <div class="hamburger-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </button>
   </div>
   
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-white w-full">
-    <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
-      <a href="/" class="text-black hover:text-coral transition duration-300 font-agrandir">Inicio</a>
-      <a href="/sobre-mi" class="text-black hover:text-coral transition duration-300 font-agrandir">Sobre Mí</a>
-      <a href="/el-metodo" class="text-black hover:text-coral transition duration-300 font-agrandir">El Método</a>
-      <a href="/asesorias" class="text-black hover:text-coral transition duration-300 font-agrandir">Asesorías 1:1</a>
-      <a href="/calculadora" class="text-black hover:text-coral transition duration-300 font-agrandir">Calculadora</a>
-      <a href="/faq" class="text-black hover:text-coral transition duration-300 font-agrandir">FAQ</a>
-      <div class="flex space-x-4 pt-2">
-        <a href="https://www.instagram.com/byvivifit/" target="_blank" rel="noopener noreferrer" class="text-black hover:text-coral transition duration-300">
-          <i class="fab fa-instagram text-xl"></i>
-        </a>
-        <a href="https://www.tiktok.com/@byvivifit" target="_blank" rel="noopener noreferrer" class="text-black hover:text-coral transition duration-300">
-          <i class="fab fa-tiktok text-xl"></i>
+  <div id="mobile-menu" class="hidden md:hidden bg-white w-full absolute top-full left-0 shadow-lg transform transition-transform duration-300 ease-in-out">
+    <div class="container mx-auto px-4 py-6 flex flex-col space-y-6">
+      <nav class="flex flex-col space-y-4">
+        <a href="/" class="text-black hover:text-coral transition duration-300 font-agrandir text-lg">Inicio</a>
+        <a href="/sobre-mi" class="text-black hover:text-coral transition duration-300 font-agrandir text-lg">Sobre Mí</a>
+        <a href="/el-metodo" class="text-black hover:text-coral transition duration-300 font-agrandir text-lg">El Método</a>
+        <a href="/asesorias" class="text-black hover:text-coral transition duration-300 font-agrandir text-lg">Asesorías 1:1</a>
+        <a href="/calculadora" class="text-black hover:text-coral transition duration-300 font-agrandir text-lg">Calculadora</a>
+        <a href="/faq" class="text-black hover:text-coral transition duration-300 font-agrandir text-lg">FAQ</a>
+      </nav>
+      
+      <div class="flex flex-col space-y-4">
+        <div class="flex justify-center space-x-6">
+          <a href="https://www.instagram.com/byvivifit/" target="_blank" rel="noopener noreferrer" class="text-black hover:text-coral transition duration-300">
+            <i class="fab fa-instagram text-2xl"></i>
+          </a>
+          <a href="https://www.tiktok.com/@byvivifit" target="_blank" rel="noopener noreferrer" class="text-black hover:text-coral transition duration-300">
+            <i class="fab fa-tiktok text-2xl"></i>
+          </a>
+        </div>
+        <a href="https://app.byvivifit.com" class="bg-coral text-white px-6 py-3 rounded-full font-opensauce font-bold hover:bg-salmon transition duration-300 text-center">
+          Comprar Ahora
         </a>
       </div>
     </div>
   </div>
 </header>
 
+<style>
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 20px;
+  }
+
+  .bar {
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .hamburger-menu.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  #mobile-menu.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+</style>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
     
     mobileMenuButton?.addEventListener('click', () => {
       mobileMenu?.classList.toggle('hidden');
+      hamburgerMenu?.classList.toggle('active');
+      
+      if (!mobileMenu?.classList.contains('hidden')) {
+        mobileMenu?.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      } else {
+        mobileMenu?.classList.remove('show');
+        document.body.style.overflow = '';
+      }
     });
   });
 </script>

@@ -1,0 +1,353 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+---
+
+<Layout title="Sobre Mí - Conoce a tu entrenadora">
+  <!-- Hero Section - Ajustado padding para móviles -->
+  <section class="pt-32 md:pt-40 pb-12 md:pb-16 bg-gradient-to-r from-peach to-apricot">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-8 md:mb-0">
+          <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-opensauce font-bold mb-4 md:mb-6 text-black">
+            Conoce a Vivi
+          </h1>
+          <p class="text-lg sm:text-xl mb-4 md:mb-6 font-agrandir text-black">
+            Tu entrenadora personal, especialista en fitness y nutrición deportiva, comprometida con tu transformación integral.
+          </p>
+          <div class="bg-white p-4 md:p-6 rounded-lg shadow-md">
+            <p class="font-agrandir text-black italic text-sm sm:text-base">
+              "Mi misión es empoderarte para que puedas alcanzar tus metas sin sacrificar lo que amas. El fitness comienza con la mentalidad adecuada: no se trata solo de cómo te ves, sino de cómo te sientes."
+            </p>
+          </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+          <Image 
+            src="/images/vivi-profile.jpg" 
+            alt="Vivi - Entrenadora Personal" 
+            width={400} 
+            height={500} 
+            class="rounded-lg shadow-xl w-3/4 md:w-auto"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mi Historia Section - Mejorado para móviles -->
+  <section class="py-10 md:py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-opensauce font-bold text-center mb-8 md:mb-12">Mi Trayectoria</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <div class="order-2 md:order-1">
+          <Image 
+            src="/images/vivi-training.jpg" 
+            alt="Vivi entrenando" 
+            width={500} 
+            height={400} 
+            class="rounded-lg shadow-xl w-full h-auto"
+          />
+        </div>
+        <div class="order-1 md:order-2">
+          <div class="space-y-6 font-agrandir">
+            <div class="flex items-start">
+              <div class="bg-coral rounded-full p-2 text-white mr-4 mt-1 flex-shrink-0">
+                <i class="fas fa-dumbbell"></i>
+              </div>
+              <div>
+                <h3 class="text-lg sm:text-xl font-opensauce font-bold mb-2">Experiencia Comprobada</h3>
+                <p class="text-sm sm:text-base">He acompañado a más de 100 mujeres en su transformación física y mental, desarrollando métodos efectivos basados en resultados reales.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="bg-coral rounded-full p-2 text-white mr-4 mt-1 flex-shrink-0">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div>
+                <h3 class="text-lg sm:text-xl font-opensauce font-bold mb-2">Formación Continua</h3>
+                <p class="text-sm sm:text-base">Mi compromiso con la excelencia me ha llevado a obtener múltiples certificaciones en entrenamiento funcional, nutrición deportiva y desarrollo de glúteos.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="bg-coral rounded-full p-2 text-white mr-4 mt-1 flex-shrink-0">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div>
+                <h3 class="text-lg sm:text-xl font-opensauce font-bold mb-2">Enfoque Integral</h3>
+                <p class="text-sm sm:text-base">Mis programas están diseñados para desarrollar fuerza, confianza y un amor genuino por el entrenamiento, adaptados a tus necesidades específicas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mi Filosofía Section - Optimizado para móviles -->
+  <section class="py-10 md:py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-opensauce font-bold text-center mb-8 md:mb-12">Mi Filosofía</h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md text-center">
+          <div class="text-coral text-3xl md:text-4xl mb-4">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3 class="text-lg sm:text-xl font-opensauce font-bold mb-3 md:mb-4">Mentalidad Primero</h3>
+          <p class="font-agrandir text-sm sm:text-base">Creo que el verdadero cambio comienza en la mente. Te ayudaré a desarrollar una relación saludable con tu cuerpo y el ejercicio.</p>
+        </div>
+        
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md text-center">
+          <div class="text-coral text-3xl md:text-4xl mb-4">
+            <i class="fas fa-balance-scale"></i>
+          </div>
+          <h3 class="text-lg sm:text-xl font-opensauce font-bold mb-3 md:mb-4">Equilibrio Sostenible</h3>
+          <p class="font-agrandir text-sm sm:text-base">No creo en dietas extremas ni entrenamientos agotadores. Mi enfoque se basa en cambios sostenibles que puedas mantener a largo plazo.</p>
+        </div>
+        
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md text-center sm:col-span-2 md:col-span-1 sm:max-w-md sm:mx-auto md:max-w-none">
+          <div class="text-coral text-3xl md:text-4xl mb-4">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="text-lg sm:text-xl font-opensauce font-bold mb-3 md:mb-4">Comunidad y Apoyo</h3>
+          <p class="font-agrandir text-sm sm:text-base">Al unirte a byVivifit, no solo obtienes una entrenadora, sino una comunidad de mujeres que comparten tus objetivos y desafíos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificaciones Section - Mejorado para móviles -->
+  <section class="py-10 md:py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-opensauce font-bold text-center mb-3 md:mb-4">Mis Certificaciones</h2>
+      <p class="text-center font-agrandir mb-8 md:mb-12 max-w-2xl mx-auto text-sm sm:text-base">
+        Mi compromiso con tu progreso me ha llevado a obtener certificaciones especializadas que respaldan mi metodología y garantizan resultados seguros y efectivos.
+      </p>
+      
+      <!-- Certificaciones Tabs - Optimizado para móviles -->
+      <div class="certification-container">
+        <!-- Tabs Navigation - Mejorado para móviles -->
+        <div class="flex flex-wrap justify-center mb-6 md:mb-8" id="certification-tabs">
+          <button class="px-4 sm:px-6 py-2 sm:py-3 mx-1 sm:mx-2 mb-2 bg-gray-100 rounded-full font-opensauce font-bold text-black hover:bg-coral hover:text-white transition duration-300 certification-tab active text-xs sm:text-sm md:text-base" data-tab="cert1">
+            <i class="fas fa-running mr-1 sm:mr-2 hidden sm:inline"></i>Entrenamiento
+          </button>
+          <button class="px-4 sm:px-6 py-2 sm:py-3 mx-1 sm:mx-2 mb-2 bg-gray-100 rounded-full font-opensauce font-bold text-black hover:bg-coral hover:text-white transition duration-300 certification-tab text-xs sm:text-sm md:text-base" data-tab="cert2">
+            <i class="fas fa-apple-alt mr-1 sm:mr-2 hidden sm:inline"></i>Nutrición
+          </button>
+          <button class="px-4 sm:px-6 py-2 sm:py-3 mx-1 sm:mx-2 mb-2 bg-gray-100 rounded-full font-opensauce font-bold text-black hover:bg-coral hover:text-white transition duration-300 certification-tab text-xs sm:text-sm md:text-base" data-tab="cert3">
+            <i class="fas fa-fire mr-1 sm:mr-2 hidden sm:inline"></i>Glúteos
+          </button>
+          <button class="px-4 sm:px-6 py-2 sm:py-3 mx-1 sm:mx-2 mb-2 bg-gray-100 rounded-full font-opensauce font-bold text-black hover:bg-coral hover:text-white transition duration-300 certification-tab text-xs sm:text-sm md:text-base" data-tab="cert4">
+            <i class="fas fa-brain mr-1 sm:mr-2 hidden sm:inline"></i>Coaching
+          </button>
+        </div>
+        
+        <!-- Tabs Content -->
+        <div class="certification-content">
+          <div class="certification-panel active" id="cert1">
+            <div class="flex flex-col md:flex-row items-center bg-gray-50 rounded-lg overflow-hidden shadow-lg">
+              <div class="w-full md:w-1/2">
+                <Image 
+                  src="/images/certification-1.jpg" 
+                  alt="Certificación en Entrenamiento Funcional" 
+                  width={500} 
+                  height={350} 
+                  class="w-full h-64 md:h-full object-cover"
+                />
+              </div>
+              <div class="w-full md:w-1/2 p-6 md:p-8">
+                <h3 class="text-xl md:text-2xl font-opensauce font-bold mb-3 md:mb-4">Entrenamiento Funcional Avanzado</h3>
+                <p class="font-agrandir mb-3 md:mb-4 text-sm sm:text-base">Certificación que me permite diseñar rutinas que mejoran la funcionalidad del cuerpo, previenen lesiones y optimizan el rendimiento físico.</p>
+                <ul class="space-y-2 font-agrandir text-sm sm:text-base">
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-coral mt-1 mr-3"></i>
+                    <span>Biomecánica aplicada al entrenamiento</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-coral mt-1 mr-3"></i>
+                    <span>Técnicas de activación muscular</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-coral mt-1 mr-3"></i>
+                    <span>Prevención y rehabilitación de lesiones</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="certification-panel hidden" id="cert2">
+            <div class="flex flex-col md:flex-row items-center bg-gray-50 rounded-lg overflow-hidden shadow-lg">
+              <div class="w-full md:w-1/2">
+                <Image 
+                  src="/images/certification-2.jpg" 
+                  alt="Certificación en Nutrición Deportiva" 
+                  width={500} 
+                  height={350} 
+                  class="w-full h-64 md:h-full object-cover"
+                />
+              </div>
+              <div class="w-full md:w-1/2 p-6 md:p-8">
+                <h3 class="text-xl md:text-2xl font-opensauce font-bold mb-3 md:mb-4">Nutrición Deportiva Especializada</h3>
+                <p class="font-agrandir mb-3 md:mb-4 text-sm sm:text-base">Formación que me permite crear planes nutricionales personalizados que complementan el entrenamiento y maximizan resultados.</p>
+                <ul class="space-y-2 font-agrandir text-sm sm:text-base">
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-coral mt-1 mr-3"></i>
+                    <span>Nutrición adaptada a objetivos específicos</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-coral mt-1 mr-3"></i>
+                    <span>Suplementación deportiva avanzada</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-coral mt-1 mr-3"></i>
+                    <span>Planificación de comidas para rendimiento</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="certification-panel hidden" id="cert3">
+            <div class="flex flex-col md:flex-row items-center bg-gray-50 rounded-lg overflow-hidden shadow-lg">
+              <div class="w-full md:w-1/2">
+                <Image 
+                  src="/images/certification-3.jpg" 
+                  alt="Especialización en Entrenamiento de Glúteos" 
+                  width={500} 
+                  height={350} 
+                  class="w-full h-64 md:h-full object-cover"
+                />
+              </div>
+              <div class="w-full md:w-1/2 p-6 md:p-8">
+                <h3 class="text-xl md:text-2xl font-opensauce font-bold mb-3 md:mb-4">Especialista en Desarrollo de Glúteos</h3>
+                <p class="font-agrandir mb-3 md:mb-4 text-sm sm:text-base">Certificación especializada en técnicas avanzadas para el desarrollo y tonificación de glúteos, adaptadas a diferentes morfologías.</p>
+                <ul class="space-y-2 font-agrandir text-sm sm:text-base">
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-coral mt-1 mr-3"></i>
+                    <span>Anatomía y biomecánica del glúteo</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-coral mt-1 mr-3"></i>
+                    <span>Ejercicios específicos para cada parte del glúteo</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-coral mt-1 mr-3"></i>
+                    <span>Progresiones para todos los niveles</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="certification-panel hidden" id="cert4">
+            <div class="flex flex-col md:flex-row items-center bg-gray-50 rounded-lg overflow-hidden shadow-lg">
+              <div class="w-full md:w-1/2">
+                <Image 
+                  src="/images/certification-4.jpg" 
+                  alt="Certificación en Coaching Fitness" 
+                  width={500} 
+                  height={350} 
+                  class="w-full h-64 md:h-full object-cover"
+                />
+              </div>
+              <div class="w-full md:w-1/2 p-6 md:p-8">
+                <h3 class="text-xl md:text-2xl font-opensauce font-bold mb-3 md:mb-4">Coaching Fitness y Motivacional</h3>
+                <p class="font-agrandir mb-3 md:mb-4 text-sm sm:text-base">Formación que me permite acompañarte no solo en el aspecto físico, sino también en el desarrollo de hábitos y mentalidad para el éxito.</p>
+                <ul class="space-y-2 font-agrandir text-sm sm:text-base">
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-coral mt-1 mr-3"></i>
+                    <span>Técnicas de motivación y adherencia</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-coral mt-1 mr-3"></i>
+                    <span>Desarrollo de hábitos sostenibles</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-coral mt-1 mr-3"></i>
+                    <span>Superación de obstáculos y plateaus</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action - Optimizado para móviles -->
+  <section class="py-10 md:py-16 bg-gradient-to-r from-coral to-salmon text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-opensauce font-bold mb-3 md:mb-4">¿Lista para transformar tu vida?</h2>
+      <p class="text-base sm:text-lg md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto font-agrandir">
+        Juntas podemos alcanzar tus metas fitness de manera sostenible, equilibrada y disfrutando del proceso.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4">
+        <a 
+          href="https://app.byvivifit.com" 
+          class="w-full sm:w-auto bg-white text-coral px-6 sm:px-8 py-3 rounded-full font-opensauce font-bold text-base sm:text-lg hover:bg-black hover:text-white transition duration-300 text-center"
+        >
+          Comenzar Ahora
+        </a>
+        <a 
+          href="/asesorias" 
+          class="w-full sm:w-auto bg-transparent border-2 border-white text-white px-6 sm:px-8 py-3 rounded-full font-opensauce font-bold text-base sm:text-lg hover:bg-white hover:text-coral transition duration-300 text-center"
+        >
+          Asesorías Personalizadas
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.certification-tab');
+    const panels = document.querySelectorAll('.certification-panel');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Remove active class from all tabs and panels
+        tabs.forEach(t => t.classList.remove('active', 'bg-coral', 'text-white'));
+        panels.forEach(p => p.classList.remove('active'));
+        panels.forEach(p => p.classList.add('hidden'));
+        
+        // Add active class to clicked tab
+        tab.classList.add('active', 'bg-coral', 'text-white');
+        
+        // Show corresponding panel
+        const panelId = tab.getAttribute('data-tab');
+        if (panelId) {
+          const panel = document.getElementById(panelId);
+          if (panel) {
+            panel.classList.add('active');
+            panel.classList.remove('hidden');
+          }
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .certification-tab.active {
+    background-color: var(--color-coral);
+    color: white;
+  }
+  
+  /* Estilos responsivos adicionales */
+  @media (max-width: 640px) {
+    .certification-tab {
+      flex: 0 0 calc(50% - 0.5rem);
+      justify-content: center;
+    }
+    
+    .certification-panel .flex-col {
+      gap: 1rem;
+    }
+  }
+</style>
