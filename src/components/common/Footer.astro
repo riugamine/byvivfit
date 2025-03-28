@@ -2,32 +2,35 @@
 import { Image } from 'astro:assets';
 ---
 
-<footer class="bg-black text-white pt-12 pb-6">
+<footer class="bg-black text-white pt-8 md:pt-12 pb-6">
   <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-      <div class="col-span-1 md:col-span-1">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <!-- Logo y descripción -->
+      <div class="col-span-2 md:col-span-1">
         <Image 
           src="/images/logo-white.png" 
           alt="byVivifit Logo" 
           width={150} 
-          height={50} 
+          height={50}
+          class="w-32 md:w-[150px]"
         />
-        <p class="mt-4 text-sm font-agrandir">
+        <p class="mt-4 text-sm md:text-base font-agrandir text-gray-300">
           Transformando vidas a través del entrenamiento especializado y nutrición personalizada.
         </p>
-        <div class="flex space-x-4 mt-6">
+        <div class="flex space-x-6 mt-6">
           <a href="https://www.instagram.com/byvivifit/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-coral transition duration-300">
-            <i class="fab fa-instagram text-2xl"></i>
+            <i class="fab fa-instagram text-2xl md:text-3xl"></i>
           </a>
           <a href="https://www.tiktok.com/@byvivifit" target="_blank" rel="noopener noreferrer" class="text-white hover:text-coral transition duration-300">
-            <i class="fab fa-tiktok text-2xl"></i>
+            <i class="fab fa-tiktok text-2xl md:text-3xl"></i>
           </a>
         </div>
       </div>
       
+      <!-- Enlaces -->
       <div class="col-span-1">
-        <h3 class="text-xl font-opensauce font-bold mb-4">Enlaces</h3>
-        <ul class="space-y-2 font-agrandir">
+        <h3 class="text-lg md:text-xl font-opensauce font-bold mb-4 text-coral">Enlaces</h3>
+        <ul class="space-y-3 font-agrandir text-gray-300">
           <li><a href="/" class="hover:text-coral transition duration-300">Inicio</a></li>
           <li><a href="/sobre-mi" class="hover:text-coral transition duration-300">Sobre Mí</a></li>
           <li><a href="/el-metodo" class="hover:text-coral transition duration-300">El Método</a></li>
@@ -37,38 +40,38 @@ import { Image } from 'astro:assets';
         </ul>
       </div>
       
+      <!-- Legal -->
       <div class="col-span-1">
-        <h3 class="text-xl font-opensauce font-bold mb-4">Legal</h3>
-        <ul class="space-y-2 font-agrandir">
+        <h3 class="text-lg md:text-xl font-opensauce font-bold mb-4 text-coral">Legal</h3>
+        <ul class="space-y-3 font-agrandir text-gray-300">
           <li><a href="/terminos" class="hover:text-coral transition duration-300">Términos de Servicio</a></li>
           <li><a href="/reembolso" class="hover:text-coral transition duration-300">Política de Reembolso</a></li>
         </ul>
       </div>
       
-      <div class="col-span-1">
-        <h3 class="text-xl font-opensauce font-bold mb-4">Descarga la App</h3>
-        <div class="flex flex-col space-y-3">
-          <a href="#" class="inline-block">
-            <Image 
-              src="/images/app-store.png" 
-              alt="Descargar en App Store" 
-              width={150} 
-              height={50} 
-            />
+      <!-- App Downloads -->
+      <div class="col-span-2 md:col-span-1">
+        <h3 class="text-lg md:text-xl font-opensauce font-bold mb-4 text-coral">Descarga la App</h3>
+        <div class="grid grid-cols-2 md:grid-cols-1 gap-3">
+          <a href="#" class="flex items-center justify-center md:justify-start space-x-3 bg-white bg-opacity-10 hover:bg-opacity-20 transition-all duration-300 rounded-xl px-4 py-3 group">
+            <i class="fab fa-apple text-2xl md:text-3xl group-hover:text-coral"></i>
+            <div class="text-left">
+              <div class="text-xs md:text-sm text-gray-300">Descargar en</div>
+              <div class="text-sm md:text-base font-bold">App Store</div>
+            </div>
           </a>
-          <a href="#" class="inline-block">
-            <Image 
-              src="/images/play-store.png" 
-              alt="Descargar en Google Play" 
-              width={150} 
-              height={50} 
-            />
+          <a href="#" class="flex items-center justify-center md:justify-start space-x-3 bg-white bg-opacity-10 hover:bg-opacity-20 transition-all duration-300 rounded-xl px-4 py-3 group">
+            <i class="fab fa-google-play text-2xl md:text-3xl group-hover:text-coral"></i>
+            <div class="text-left">
+              <div class="text-xs md:text-sm text-gray-300">Disponible en</div>
+              <div class="text-sm md:text-base font-bold">Google Play</div>
+            </div>
           </a>
         </div>
       </div>
     </div>
     
-    <div class="border-t border-gray-700 mt-8 pt-6 text-center text-sm font-agrandir">
+    <div class="border-t border-gray-800 mt-8 pt-6 text-center text-sm font-agrandir text-gray-400">
       <p>&copy; {new Date().getFullYear()} byVivifit. Todos los derechos reservados.</p>
     </div>
   </div>
