@@ -43,10 +43,10 @@ html {
 }
 
 body {
-  font-family: 'Open Sauce', sans-serif;
+  font-family: 'Agrandir', sans-serif;
   color: var(--color-black);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Agrandir', sans-serif;
+  font-family: 'Open Sauce', sans-serif;
 }
