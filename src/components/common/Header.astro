@@ -14,16 +14,17 @@ import { Image } from 'astro:assets';
       />
     </a>
     
-    <nav class="hidden md:flex space-x-6">
+    <nav class="hidden lg:flex space-x-6">
       <a href="/" class="text-black hover:text-coral transition duration-300 font-agrandir">Inicio</a>
       <a href="/sobre-mi" class="text-black hover:text-coral transition duration-300 font-agrandir">Sobre Mí</a>
       <a href="/el-metodo" class="text-black hover:text-coral transition duration-300 font-agrandir">El Método</a>
-      <a href="/asesorias" class="text-black hover:text-coral transition duration-300 font-agrandir">Asesorías 1:1</a>
-      <a href="/calculadora" class="text-black hover:text-coral transition duration-300 font-agrandir">Calculadora</a>
+      <a href="https://app.byvivifit.com" class="text-black hover:text-coral transition duration-300 font-agrandir">Move with Vi</a>
+      <a href="/asesorias" class="text-black hover:text-coral transition duration-300 font-agrandir">Asesorías</a>
+      <a href="/calculadora" class="text-black hover:text-coral transition duration-300 font-agrandir">Calculadora de Macros</a>
       <a href="/faq" class="text-black hover:text-coral transition duration-300 font-agrandir">FAQ</a>
     </nav>
     
-    <div class="hidden md:flex items-center space-x-4">
+    <div class="hidden lg:flex items-center space-x-4">
       <a href="https://www.instagram.com/byvivifit/" target="_blank" rel="noopener noreferrer" class="text-black hover:text-coral transition duration-300">
         <i class="fab fa-instagram text-xl"></i>
       </a>
@@ -35,7 +36,7 @@ import { Image } from 'astro:assets';
       </a>
     </div>
     
-    <button class="md:hidden text-black p-2" id="mobile-menu-button" aria-label="Menu">
+    <button class="lg:hidden text-black p-2" id="mobile-menu-button" aria-label="Menu">
       <div class="hamburger-menu">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -45,14 +46,15 @@ import { Image } from 'astro:assets';
   </div>
   
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-white w-full absolute top-full left-0 shadow-lg transform transition-transform duration-300 ease-in-out">
+  <div id="mobile-menu" class="hidden lg:hidden bg-white w-full absolute top-full left-0 shadow-lg transform transition-transform duration-300 ease-in-out">
     <div class="container mx-auto px-4 py-6 flex flex-col space-y-6">
       <nav class="flex flex-col space-y-4">
         <a href="/" class="text-black hover:text-coral transition duration-300 font-agrandir text-lg">Inicio</a>
         <a href="/sobre-mi" class="text-black hover:text-coral transition duration-300 font-agrandir text-lg">Sobre Mí</a>
         <a href="/el-metodo" class="text-black hover:text-coral transition duration-300 font-agrandir text-lg">El Método</a>
-        <a href="/asesorias" class="text-black hover:text-coral transition duration-300 font-agrandir text-lg">Asesorías 1:1</a>
-        <a href="/calculadora" class="text-black hover:text-coral transition duration-300 font-agrandir text-lg">Calculadora</a>
+        <a href="https://app.byvivifit.com" class="text-black hover:text-coral transition duration-300 font-agrandir text-lg">Move with Vi</a>
+        <a href="/asesorias" class="text-black hover:text-coral transition duration-300 font-agrandir text-lg">Asesorías</a>
+        <a href="/calculadora" class="text-black hover:text-coral transition duration-300 font-agrandir text-lg">Calculadora de Macros</a>
         <a href="/faq" class="text-black hover:text-coral transition duration-300 font-agrandir text-lg">FAQ</a>
       </nav>
       

@@ -1,0 +1,550 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import CallToAction from '../components/common/CallToAction.astro';
+---
+
+<Layout title="El Método - Programa de Transformación de 6 Semanas">
+  <!-- Hero Section -->
+  <section class="pt-20 lg:pt-24 pb-8 lg:pb-12 bg-gradient-to-r from-coral to-salmon text-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
+        <div class="w-full lg:w-1/2 text-center lg:text-left">
+          <h1 class="text-2xl sm:text-3xl lg:text-5xl font-opensauce font-bold mb-3 lg:mb-4">
+            El Método
+            <span class="block text-lg sm:text-xl lg:text-3xl mt-2">6 semanas para transformar tu vida</span>
+          </h1>
+          <p class="text-base sm:text-lg lg:text-xl mb-6 lg:mb-8 font-agrandir">
+            Un programa integral que combina entrenamiento estratégico, nutrición flexible y educación sobre el ciclo menstrual. Resultados reales sin dietas restrictivas.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+            <a 
+              href="#waitlist" 
+              class="w-full sm:w-auto text-center inline-block bg-white text-coral px-6 sm:px-8 py-3 rounded-full font-opensauce font-bold text-base lg:text-lg hover:bg-black hover:text-white transition duration-300"
+            >
+              Únete a la Lista de Espera
+            </a>
+            <a 
+              href="https://app.byvivifit.com" 
+              class="w-full sm:w-auto text-center inline-block bg-transparent border-2 border-white text-white px-6 sm:px-8 py-3 rounded-full font-opensauce font-bold text-base lg:text-lg hover:bg-white hover:text-coral transition duration-300"
+            >
+              Accede a Move with Vi
+            </a>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 px-4 sm:px-8 lg:px-0">
+          <Image 
+            src="/images/metodo-hero.jpg" 
+            alt="El Método byVivifit" 
+            width={600} 
+            height={600} 
+            class="rounded-lg shadow-xl w-full max-w-md mx-auto"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rest of the sections remain similar but with updated content focusing on the 6-week program -->
+  <!-- Benefits Section -->
+  <section class="py-12 lg:py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-opensauce font-bold text-center mb-8 lg:mb-12">
+        ¿Qué lograrás con El Método?
+      </h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <div class="bg-white rounded-xl p-6 transform hover:scale-105 transition-transform duration-300 hover:shadow-lg border border-gray-100">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 bg-coral/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-bolt text-3xl text-coral"></i>
+            </div>
+            <h3 class="text-xl font-opensauce font-bold mb-3">Energía Todo el Día</h3>
+            <p class="font-agrandir text-gray-700">Optimiza tu nutrición y entrena de forma inteligente para mantener tu energía al máximo.</p>
+          </div>
+          <ul class="space-y-2 font-agrandir text-gray-600 text-sm">
+            <li class="flex items-center">
+              <i class="fas fa-check text-coral mr-2"></i>
+              <span>Mayor vitalidad diaria</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-coral mr-2"></i>
+              <span>Mejor calidad de sueño</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-white rounded-xl p-6 transform hover:scale-105 transition-transform duration-300 hover:shadow-lg border border-gray-100">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 bg-coral/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-dumbbell text-3xl text-coral"></i>
+            </div>
+            <h3 class="text-xl font-opensauce font-bold mb-3">Cuerpo Fuerte y Definido</h3>
+            <p class="font-agrandir text-gray-700">Desarrolla un físico atlético sin dietas restrictivas ni rutinas confusas.</p>
+          </div>
+          <ul class="space-y-2 font-agrandir text-gray-600 text-sm">
+            <li class="flex items-center">
+              <i class="fas fa-check text-coral mr-2"></i>
+              <span>Aumento de fuerza</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-coral mr-2"></i>
+              <span>Mejor composición corporal</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-white rounded-xl p-6 transform hover:scale-105 transition-transform duration-300 hover:shadow-lg border border-gray-100">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 bg-coral/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-heart text-3xl text-coral"></i>
+            </div>
+            <h3 class="text-xl font-opensauce font-bold mb-3">Hábitos Sostenibles</h3>
+            <p class="font-agrandir text-gray-700">Aprende a mantener resultados a largo plazo con un estilo de vida equilibrado.</p>
+          </div>
+          <ul class="space-y-2 font-agrandir text-gray-600 text-sm">
+            <li class="flex items-center">
+              <i class="fas fa-check text-coral mr-2"></i>
+              <span>Rutinas consistentes</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-coral mr-2"></i>
+              <span>Relación saludable con la comida</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program Features -->
+  <section class="py-12 lg:py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-opensauce font-bold text-center mb-8 lg:mb-12">
+        ¿Qué incluye el programa?
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <div class="flex items-start">
+            <div class="text-coral text-2xl mr-4">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-opensauce font-bold mb-2">App Move with Vi</h3>
+              <p class="font-agrandir text-gray-700">Acceso completo a la app con planes de entrenamiento, guías nutricionales y seguimiento de progreso.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <div class="flex items-start">
+            <div class="text-coral text-2xl mr-4">
+              <i class="fas fa-video"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-opensauce font-bold mb-2">Biblioteca de Ejercicios</h3>
+              <p class="font-agrandir text-gray-700">Videos detallados de cada ejercicio con explicaciones técnicas y variaciones según tu nivel.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <div class="flex items-start">
+            <div class="text-coral text-2xl mr-4">
+              <i class="fas fa-calculator"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-opensauce font-bold mb-2">Calculadora de Macros</h3>
+              <p class="font-agrandir text-gray-700">Herramienta personalizada para calcular tus necesidades nutricionales específicas.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <div class="flex items-start">
+            <div class="text-coral text-2xl mr-4">
+              <i class="fas fa-users"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-opensauce font-bold mb-2">Comunidad Privada</h3>
+              <p class="font-agrandir text-gray-700">Acceso a un grupo exclusivo para compartir experiencias y motivación con otras participantes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Is This For You? -->
+  <section class="py-12 lg:py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-opensauce font-bold text-center mb-8 lg:mb-12">
+        ¿Es El Método para ti?
+      </h2>
+      
+      <div class="max-w-3xl mx-auto">
+        <div class="bg-white rounded-xl p-6 lg:p-8 shadow-lg border border-gray-100">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              {
+                text: "Quieres resultados reales y duraderos en 6 semanas",
+                icon: "fa-star"
+              },
+              {
+                text: "Buscas un programa que combine entrenamiento y nutrición",
+                icon: "fa-dumbbell"
+              },
+              {
+                text: "Deseas entender y trabajar en armonía con tu ciclo hormonal",
+                icon: "fa-venus"
+              },
+              {
+                text: "Estás lista para comprometerte con un cambio real",
+                icon: "fa-heart"
+              },
+              {
+                text: "Quieres aprender sobre nutrición flexible sin restricciones",
+                icon: "fa-apple-alt"
+              },
+              {
+                text: "Buscas un enfoque sostenible y saludable",
+                icon: "fa-seedling"
+              }
+            ].map((item) => (
+              <div class="flex items-start p-4 bg-coral/5 rounded-lg transform hover:scale-102 transition-transform duration-300">
+                <div class="w-10 h-10 bg-coral/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class={`fas ${item.icon} text-coral`}></i>
+                </div>
+                <p class="font-agrandir text-gray-700 ml-4 text-sm sm:text-base">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Testimonials -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-opensauce font-bold text-center mb-12">
+        Transformaciones Reales
+      </h2>
+      
+      <!-- Aquí iría el componente de carrusel con las imágenes antes/después -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimonios con imágenes -->
+      </div>
+    </div>
+  </section>
+  <!-- Program Modules -->
+  <section class="py-12 lg:py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-opensauce font-bold text-center mb-6 lg:mb-12">
+        Explora los Módulos de El Método
+      </h2>
+      
+      <div class="max-w-3xl mx-auto space-y-3 lg:space-y-4" id="modules-accordion">
+        <!-- Módulo items -->
+        <div class="border rounded-lg overflow-hidden module-item">
+          <button class="w-full px-4 sm:px-6 py-3 sm:py-4 text-left font-opensauce font-bold flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors module-button">
+            <span class="flex items-center text-sm sm:text-base">
+              <i class="fas fa-flag text-coral mr-2 sm:mr-3"></i>
+              Empieza Aquí
+            </span>
+            <i class="fas fa-chevron-down transition-transform text-sm sm:text-base"></i>
+          </button>
+          <div class="p-4 sm:p-6 bg-white hidden module-content">
+            <ul class="space-y-2 sm:space-y-3 font-agrandir text-gray-700 text-sm sm:text-base">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span>Guía de bienvenida</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span>PDF: Suplementación inteligente</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span>Semana de entrenamiento pre-reto</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Módulo 2 -->
+        <div class="border rounded-lg overflow-hidden module-item">
+          <button class="w-full px-6 py-4 text-left font-opensauce font-bold flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors module-button">
+            <span class="flex items-center">
+              <i class="fas fa-mobile-alt text-coral mr-3"></i>
+              App Move With Vi
+            </span>
+            <i class="fas fa-chevron-down transition-transform"></i>
+          </button>
+          <div class="p-6 bg-white hidden module-content">
+            <ul class="space-y-3 font-agrandir text-gray-700">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span>Configuración de perfil y agenda de entrenamiento</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span>Uso de las secciones "Mi Perfil" y "Progreso"</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Módulo 3 -->
+        <div class="border rounded-lg overflow-hidden module-item">
+          <button class="w-full px-6 py-4 text-left font-opensauce font-bold flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors module-button">
+            <span class="flex items-center">
+              <i class="fas fa-dumbbell text-coral mr-3"></i>
+              Entrenamiento
+            </span>
+            <i class="fas fa-chevron-down transition-transform"></i>
+          </button>
+          <div class="p-6 bg-white hidden module-content">
+            <ul class="space-y-3 font-agrandir text-gray-700">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span>Técnicas de tempo y carga de peso</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span>Rutinas adaptables (gimnasio o casa)</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span>Importancia de los pasos diarios</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Módulo 4 -->
+        <div class="border rounded-lg overflow-hidden module-item">
+          <button class="w-full px-6 py-4 text-left font-opensauce font-bold flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors module-button">
+            <span class="flex items-center">
+              <i class="fas fa-apple-alt text-coral mr-3"></i>
+              Nutrición
+            </span>
+            <i class="fas fa-chevron-down transition-transform"></i>
+          </button>
+          <div class="p-6 bg-white hidden module-content">
+            <ul class="space-y-3 font-agrandir text-gray-700">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span>Dieta flexible y cálculo de macros</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span>Planes de alimentación generales</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Módulo 5 -->
+        <div class="border rounded-lg overflow-hidden module-item">
+          <button class="w-full px-6 py-4 text-left font-opensauce font-bold flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors module-button">
+            <span class="flex items-center">
+              <i class="fas fa-heart text-coral mr-3"></i>
+              Salud Integral
+            </span>
+            <i class="fas fa-chevron-down transition-transform"></i>
+          </button>
+          <div class="p-6 bg-white hidden module-content">
+            <ul class="space-y-3 font-agrandir text-gray-700">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span>Manejo del ciclo menstrual para optimizar resultados</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span>Protocolo antiinflamatorio</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span>Mitos comunes sobre fitness y salud</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const moduleButtons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.module-button');
+    
+    moduleButtons.forEach((button: HTMLButtonElement) => {
+      button.addEventListener('click', () => {
+        const moduleItem: HTMLElement | null = button.closest('.module-item');
+        const content: HTMLElement | null = moduleItem ? moduleItem.querySelector('.module-content') : null;
+        const icon: HTMLElement | null = button.querySelector('.fa-chevron-down');
+        
+        if (!moduleItem || !content || !icon) return;
+
+        // Cerrar todos los otros módulos
+        document.querySelectorAll<HTMLElement>('.module-content').forEach((otherContent: HTMLElement) => {
+          if (otherContent !== content && !otherContent.classList.contains('hidden')) {
+            otherContent.classList.add('hidden');
+            const parentElement = otherContent.parentElement;
+            const otherIcon: HTMLElement | null = parentElement ? parentElement.querySelector('.fa-chevron-down') : null;
+            if (otherIcon) {
+              otherIcon.style.transform = 'rotate(0deg)';
+            }
+          }
+        });
+
+        // Alternar el módulo actual
+        content.classList.toggle('hidden');
+        icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+      });
+    });
+  });
+</script>
+
+  <!-- FAQ Section -->
+  <section class="py-12 lg:py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-opensauce font-bold text-center mb-6 lg:mb-12">
+        Preguntas Frecuentes
+      </h2>
+      
+      <div class="max-w-3xl mx-auto space-y-3 lg:space-y-4" id="faq-accordion">
+        {[
+          {
+            question: "¿Puedo unirme si soy principiante?",
+            answer: "Sí, el programa incluye rutinas adaptables a todos los niveles."
+          },
+          {
+            question: "¿Necesito gimnasio o puedo entrenar en casa?",
+            answer: "Puedes entrenar en cualquier lugar; cada ejercicio tiene variantes."
+          },
+          {
+            question: "¿Los planes de alimentación son personalizados?",
+            answer: "No. Son generales y no incluyen adaptaciones para alergias, condiciones médicas o dietas veganas/vegetarianas."
+          },
+          {
+            question: "¿Cómo funciona la suplementación?",
+            answer: "Se brinda información clara sobre suplementos, pero su uso es opcional."
+          },
+          {
+            question: "¿Cuánto tiempo dura el acceso al contenido?",
+            answer: "8 semanas (1 semana antes y después del reto)."
+          },
+          {
+            question: "¿Hay opciones para dietas vegetarianas/veganas?",
+            answer: "No, el método sigue una dieta omnívora exclusiva."
+          },
+          {
+            question: "¿Puedo participar si estoy embarazada o en lactancia?",
+            answer: "No es recomendable si no duermes 8 horas seguidas o tienes demandas físicas altas."
+          },
+          {
+            question: "¿Cómo accedo a la app y al material?",
+            answer: "Recibirás un correo con instrucciones una semana antes del inicio."
+          }
+        ].map((faq, index) => (
+          <div class="border rounded-lg overflow-hidden faq-item">
+            <button 
+              class="w-full px-4 sm:px-6 py-3 sm:py-4 text-left font-opensauce font-bold flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors faq-button text-sm sm:text-base"
+              aria-expanded="false"
+              aria-controls={`faq-content-${index}`}
+            >
+              <span class="pr-4">{faq.question}</span>
+              <i class="fas fa-chevron-down transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div 
+              id={`faq-content-${index}`}
+              class="p-4 sm:p-6 bg-white hidden faq-content"
+              aria-hidden="true"
+            >
+              <p class="font-agrandir text-gray-700 text-sm sm:text-base">{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+<script>
+  interface FAQElements {
+    button: HTMLButtonElement;
+    content: HTMLElement;
+    icon: HTMLElement;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqButtons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.faq-button');
+    
+    const toggleFAQ = (elements: FAQElements): void => {
+      const isHidden = elements.content.classList.contains('hidden');
+      
+      // Update ARIA attributes
+      elements.button.setAttribute('aria-expanded', (!isHidden).toString());
+      elements.content.setAttribute('aria-hidden', isHidden.toString());
+      
+      // Toggle classes
+      elements.content.classList.toggle('hidden');
+      elements.icon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+    };
+
+    const closeAllExcept = (exceptButton: HTMLButtonElement): void => {
+      faqButtons.forEach((otherButton) => {
+        if (otherButton !== exceptButton) {
+          const elements: FAQElements = {
+            button: otherButton,
+            content: otherButton.nextElementSibling as HTMLElement,
+            icon: otherButton.querySelector('.fa-chevron-down') as HTMLElement
+          };
+
+          if (!elements.content.classList.contains('hidden')) {
+            toggleFAQ(elements);
+          }
+        }
+      });
+    };
+
+    faqButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const elements: FAQElements = {
+          button: button,
+          content: button.nextElementSibling as HTMLElement,
+          icon: button.querySelector('.fa-chevron-down') as HTMLElement
+        };
+
+        closeAllExcept(button);
+        toggleFAQ(elements);
+      });
+    });
+  });
+</script>
+
+  <!-- Disclaimer -->
+  <section class="py-8 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <div class="max-w-2xl mx-auto text-center">
+        <p class="text-sm font-agrandir text-gray-600">
+          Programa diseñado para mujeres mayores de 18 años. No recomendado durante embarazo o lactancia. 
+          Plan nutricional basado en dieta omnívora.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <CallToAction 
+    title="¿Lista para transformar tu vida en 6 semanas?" 
+    subtitle="Únete a la lista de espera y sé la primera en conocer cuando abrimos inscripciones" 
+    buttonText="Unirme a la Lista de Espera" 
+    buttonLink="#waitlist" 
+  />
+</Layout>
+
+<style>
+  /* Estilos adicionales específicos de la página */
+</style>
