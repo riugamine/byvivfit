@@ -1,0 +1,292 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import CallToAction from '../components/common/CallToAction.astro';
+---
+
+<Layout title="Asesorías Personalizadas - byVivifit">
+  <!-- Hero Section -->
+  <section class="pt-20 lg:pt-24 pb-8 lg:pb-12 bg-gradient-to-r from-coral to-salmon text-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
+        <div class="w-full lg:w-1/2 text-center lg:text-left">
+          <h1 class="text-2xl sm:text-3xl lg:text-5xl font-opensauce font-bold mb-3 lg:mb-4">
+            Asesorías Personalizadas
+            <span class="block text-lg sm:text-xl lg:text-3xl mt-2">Tu Camino a Resultados Reales</span>
+          </h1>
+          <p class="text-base sm:text-lg lg:text-xl mb-6 lg:mb-8 font-agrandir">
+            Nutrición, entrenamiento y seguimiento 1:1 para alcanzar tus metas sin perder tiempo.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+            <a 
+              href="#reserva" 
+              class="w-full sm:w-auto text-center inline-block bg-white text-coral px-6 sm:px-8 py-3 rounded-full font-opensauce font-bold text-base lg:text-lg hover:bg-black hover:text-white transition duration-300"
+            >
+              Reserva Tu Asesoría
+            </a>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 px-4 sm:px-8 lg:px-0">
+          <Image 
+            src="/images/asesorias-hero.jpg" 
+            alt="Asesorías Personalizadas byVivifit" 
+            width={600} 
+            height={600} 
+            class="rounded-lg shadow-xl w-full max-w-md mx-auto"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tipos de Asesorías -->
+  <section class="py-12 lg:py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-opensauce font-bold text-center mb-8 lg:mb-12">
+        Elige Tu Plan Ideal
+      </h2>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 max-w-6xl mx-auto">
+        <!-- Asesoría Elite -->
+        <div class="bg-white rounded-2xl p-6 lg:p-8 shadow-lg border-2 border-coral transform hover:scale-105 transition-all duration-300 h-full flex flex-col justify-between">
+            <div class="text-center mb-6">
+              <div class="w-16 h-16 bg-coral/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-crown text-3xl text-coral"></i>
+              </div>
+              <h3 class="text-2xl font-opensauce font-bold mb-2">Asesoría Elite</h3>
+              <p class="text-gray-600 font-agrandir">Nutrición + Entrenamiento</p>
+            </div>
+
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span class="font-agrandir text-gray-700">Planes personalizados de alimentación y entrenamiento</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span class="font-agrandir text-gray-700">Check-ins semanales y ajustes en tiempo real</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span class="font-agrandir text-gray-700">Soporte continuo vía WhatsApp</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span class="font-agrandir text-gray-700">Acceso a Fit Academy</span>
+              </li>
+            </ul>
+
+          <a 
+            href="#elite" 
+            class="block w-full text-center bg-coral text-white px-6 py-3 rounded-full font-opensauce font-bold hover:bg-black transition duration-300"
+          >
+            Quiero Transformación Completa
+          </a>
+        </div>
+
+        <!-- Asesoría Premium -->
+        <div class="bg-white rounded-2xl p-6 lg:p-8 shadow-lg border-2 border-coral transform hover:scale-105 transition-all duration-300 h-full flex flex-col justify-between">
+          <div>
+            <div class="text-center mb-6">
+              <div class="w-16 h-16 bg-coral/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-dumbbell text-3xl text-coral"></i>
+              </div>
+              <h3 class="text-2xl font-opensauce font-bold mb-2">Asesoría Premium</h3>
+              <p class="text-gray-600 font-agrandir">Entrenamiento</p>
+            </div>
+
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span class="font-agrandir text-gray-700">Rutinas adaptadas a tus objetivos</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span class="font-agrandir text-gray-700">Feedback técnico y registro de progreso</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span class="font-agrandir text-gray-700">Motivación constante</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-coral mt-1 mr-3"></i>
+                <span class="font-agrandir text-gray-700">Acceso a Fit Academy</span>
+              </li>
+            </ul>
+          </div>
+
+          <a 
+            href="#premium" 
+            class="block w-full text-center bg-coral text-white px-6 py-3 rounded-full font-opensauce font-bold hover:bg-black transition duration-300"
+          >
+            Quiero Entrenar Inteligente
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proceso -->
+  <section class="py-12 lg:py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-opensauce font-bold text-center mb-8 lg:mb-12">
+        ¿Cómo Funciona?
+      </h2>
+
+      <div class="max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          {[
+            {
+              icon: "fa-shopping-cart",
+              title: "Compra",
+              description: "Elige tu asesoría ideal"
+            },
+            {
+              icon: "fa-envelope",
+              title: "Acceso Inmediato",
+              description: "Recibe tu acceso a Fit Academy"
+            },
+            {
+              icon: "fa-clipboard-list",
+              title: "Formulario",
+              description: "Completa tus datos y objetivos"
+            },
+            {
+              icon: "fa-calendar-check",
+              title: "Consulta 1:1",
+              description: "Agenda tu sesión inicial"
+            },
+            {
+              icon: "fa-flag-checkered",
+              title: "¡Comienza!",
+              description: "Inicia tu transformación"
+            }
+          ].map((step) => (
+            <div class="bg-white rounded-xl p-6 text-center transform hover:scale-105 transition-all duration-300 shadow-md">
+              <div class="w-14 h-14 bg-coral/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class={`fas ${step.icon} text-2xl text-coral`}></i>
+              </div>
+              <h3 class="font-opensauce font-bold mb-2">{step.title}</h3>
+              <p class="text-sm text-gray-600 font-agrandir">{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-12 lg:py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-opensauce font-bold text-center mb-8 lg:mb-12">
+        Preguntas Frecuentes
+      </h2>
+      
+      <div class="max-w-3xl mx-auto space-y-3 lg:space-y-4" id="faq-accordion">
+        {[
+          {
+            question: "¿Qué necesito para empezar?",
+            answer: "Solo compromiso y acceso a internet para usar la app y Fit Academy."
+          },
+          {
+            question: "¿Cómo recibo mi plan personalizado?",
+            answer: "Tras completar el formulario inicial, Vivi te enviará tu plan en 48 horas."
+          },
+          {
+            question: "¿Puedo cambiar de asesoría después de comprar?",
+            answer: "Sí, contáctanos via WhatsApp para ajustar tu paquete."
+          },
+          {
+            question: "¿Hay opción de reembolso?",
+            answer: "No, pero garantizamos soporte constante para que logres tus metas."
+          },
+          {
+            question: "¿Qué incluye Fit Academy?",
+            answer: "Videos educativos, guías y acceso prioritario a actualizaciones."
+          }
+        ].map((faq, index) => (
+          <div class="border rounded-lg overflow-hidden faq-item">
+            <button 
+              class="w-full px-4 sm:px-6 py-3 sm:py-4 text-left font-opensauce font-bold flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors faq-button"
+              aria-expanded="false"
+              aria-controls={`faq-content-${index}`}
+            >
+              <span class="flex items-center">
+                <i class="fas fa-question-circle text-coral mr-3"></i>
+                {faq.question}
+              </span>
+              <i class="fas fa-chevron-down transition-transform duration-300"></i>
+            </button>
+            <div 
+              id={`faq-content-${index}`}
+              class="p-4 sm:p-6 bg-white hidden faq-content"
+              aria-hidden="true"
+            >
+              <p class="font-agrandir text-gray-700">{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <CallToAction 
+    title="¿Lista para Dejar de Adivinar y Empezar a Ver Resultados?" 
+    subtitle="No importa si eres principiante o avanzada: juntas crearemos un plan que se adapte a tu ritmo, tu cuerpo y tu vida." 
+    buttonText="Empieza Hoy" 
+    buttonLink="#reserva" 
+  />
+
+<script>
+  interface FAQElements {
+    button: HTMLButtonElement;
+    content: HTMLElement;
+    icon: HTMLElement;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqButtons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.faq-button');
+    
+    const toggleFAQ = (elements: FAQElements): void => {
+      const isHidden = elements.content.classList.contains('hidden');
+      
+      elements.button.setAttribute('aria-expanded', (!isHidden).toString());
+      elements.content.setAttribute('aria-hidden', isHidden.toString());
+      
+      elements.content.classList.toggle('hidden');
+      elements.icon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+    };
+
+    const closeAllExcept = (exceptButton: HTMLButtonElement): void => {
+      faqButtons.forEach((otherButton) => {
+        if (otherButton !== exceptButton) {
+          const elements: FAQElements = {
+            button: otherButton,
+            content: otherButton.nextElementSibling as HTMLElement,
+            icon: otherButton.querySelector('.fa-chevron-down') as HTMLElement
+          };
+
+          if (!elements.content.classList.contains('hidden')) {
+            toggleFAQ(elements);
+          }
+        }
+      });
+    };
+
+    faqButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const elements: FAQElements = {
+          button: button,
+          content: button.nextElementSibling as HTMLElement,
+          icon: button.querySelector('.fa-chevron-down') as HTMLElement
+        };
+
+        closeAllExcept(button);
+        toggleFAQ(elements);
+      });
+    });
+  });
+</script>
+
+</Layout>

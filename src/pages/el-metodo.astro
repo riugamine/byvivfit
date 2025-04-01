@@ -455,8 +455,11 @@ import CallToAction from '../components/common/CallToAction.astro';
               aria-expanded="false"
               aria-controls={`faq-content-${index}`}
             >
-              <span class="pr-4">{faq.question}</span>
-              <i class="fas fa-chevron-down transition-transform duration-300 flex-shrink-0"></i>
+              <span class="flex items-center">
+                <i class="fas fa-question-circle text-coral mr-3"></i>
+                {faq.question}
+              </span>
+              <i class="fas fa-chevron-down transition-transform duration-300"></i>
             </button>
             <div 
               id={`faq-content-${index}`}
