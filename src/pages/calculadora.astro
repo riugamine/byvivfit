@@ -1,0 +1,418 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import CallToAction from '../components/common/CallToAction.astro';
+---
+
+<Layout title="Calculadora de Macros - byVivifit">
+  <section class="pt-20 lg:pt-24 pb-8 lg:pb-12 bg-gradient-to-r from-coral to-salmon text-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto">
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-opensauce font-bold mb-4">
+          Calculadora de Macros
+        </h1>
+        <p class="text-lg font-agrandir mb-6">
+          Calcula tus macronutrientes ideales y descubre tu plan nutricional personalizado
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 lg:py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <!-- Formulario de Calculadora -->
+        <form id="macrosForm" class="bg-white rounded-xl p-6 lg:p-8 shadow-lg border border-gray-100">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Datos Básicos -->
+            <div class="space-y-4">
+              <div>
+                <label class="block text-sm font-bold mb-2 font-opensauce" for="sexo">
+                  <i class="fas fa-venus-mars text-coral mr-2"></i>
+                  Sexo
+                  <i class="fas fa-info-circle text-gray-400 ml-1" data-tippy-content="Tu sexo biológico es importante para calcular tu metabolismo basal"></i>
+                </label>
+                <select id="sexo" class="w-full p-3 border rounded-lg">
+                  <option value="masculino">Masculino</option>
+                  <option value="femenino">Femenino</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-sm font-bold mb-2 font-opensauce" for="actividad">
+                  <i class="fas fa-running text-coral mr-2"></i>
+                  Nivel de Actividad
+                  <i class="fas fa-info-circle text-gray-400 ml-1" data-tippy-content="Tu nivel de actividad física semanal"></i>
+                </label>
+                <select id="actividad" class="w-full p-3 border rounded-lg">
+                  <option value="1.2">Sedentario</option>
+                  <option value="1.375">Ligeramente Activo</option>
+                  <option value="1.55">Moderadamente Activo</option>
+                  <option value="1.725">Muy Activo</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-sm font-bold mb-2 font-opensauce" for="peso">
+                  <i class="fas fa-weight text-coral mr-2"></i>
+                  Peso (kg)
+                </label>
+                <input type="number" id="peso" class="w-full p-3 border rounded-lg" min="30" max="200">
+              </div>
+
+              <div>
+                <label class="block text-sm font-bold mb-2 font-opensauce" for="altura">
+                  <i class="fas fa-ruler-vertical text-coral mr-2"></i>
+                  Altura (cm)
+                </label>
+                <input type="number" id="altura" class="w-full p-3 border rounded-lg" min="140" max="220">
+              </div>
+            </div>
+
+            <!-- Datos Adicionales -->
+            <div class="space-y-4">
+              <div>
+                <label class="block text-sm font-bold mb-2 font-opensauce" for="edad">
+                  <i class="fas fa-birthday-cake text-coral mr-2"></i>
+                  Edad
+                </label>
+                <input type="number" id="edad" class="w-full p-3 border rounded-lg" min="15" max="80">
+              </div>
+
+              <!-- Reemplazar el input de grasa por un select -->
+              <div>
+                <label class="block text-sm font-bold mb-2 font-opensauce" for="grasa">
+                  <i class="fas fa-percentage text-coral mr-2"></i>
+                  Porcentaje de Grasa
+                  <i class="fas fa-info-circle text-gray-400 ml-1" data-tippy-content="Selecciona el que más se parezca a tu composición corporal actual"></i>
+                </label>
+                <select id="grasa" class="w-full p-3 border rounded-lg">
+                  <option value="">Selecciona tu porcentaje</option>
+                  <optgroup label="Mujeres">
+                    <option value="10">10-12% - Atlética</option>
+                    <option value="15">15-17% - Fitness</option>
+                    <option value="20">20-22% - Saludable</option>
+                    <option value="25">25% - Normal</option>
+                    <option value="30">30% - Por encima del promedio</option>
+                    <option value="35">35% o más - Alto</option>
+                  </optgroup>
+                  <optgroup label="Hombres">
+                    <option value="3">3-4% - Competición</option>
+                    <option value="6">6-7% - Atlético</option>
+                    <option value="10">10-12% - Fitness</option>
+                    <option value="15">15% - Saludable</option>
+                    <option value="20">20% - Normal</option>
+                    <option value="25">25% o más - Por encima del promedio</option>
+                  </optgroup>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-sm font-bold mb-2 font-opensauce" for="objetivo">
+                  <i class="fas fa-bullseye text-coral mr-2"></i>
+                  Objetivo
+                </label>
+                <select id="objetivo" class="w-full p-3 border rounded-lg">
+                  <option value="mantenimiento">Mantenimiento</option>
+                  <option value="deficit_ligero">Déficit Ligero</option>
+                  <option value="deficit_moderado">Déficit Moderado</option>
+                  <option value="deficit_extremo">Déficit Extremo</option>
+                  <option value="aumento_ligero">Aumento Ligero</option>
+                  <option value="aumento_moderado">Aumento Moderado</option>
+                  <option value="aumento_extremo">Aumento Extremo</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Imágenes de Referencia -->
+          <div class="mt-8">
+            <h3 class="text-lg font-bold mb-4 font-opensauce">Referencia Visual de Porcentaje de Grasa</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <Image 
+                src="/images/body-fat-men.jpg" 
+                alt="Porcentaje de grasa corporal masculino" 
+                width={500} 
+                height={300}
+                class="rounded-lg"
+              />
+              <Image 
+                src="/images/body-fat-women.jpg" 
+                alt="Porcentaje de grasa corporal femenino" 
+                width={500} 
+                height={300}
+                class="rounded-lg"
+              />
+            </div>
+          </div>
+        </form>
+
+        <!-- Resultados -->
+        <div id="resultados" class="mt-8 hidden">
+          <!-- Se llenará dinámicamente con JavaScript -->
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          <button 
+            id="calcularBtn"
+            class="px-8 py-3 bg-coral text-white rounded-full font-bold hover:bg-black transition duration-300"
+          >
+            <i class="fas fa-calculator mr-2"></i>
+            Calcular Macros
+          </button>
+          <!-- Eliminar el botón descargarBtn -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <CallToAction 
+    title="¿Quieres un Plan Personalizado?" 
+    subtitle="Obtén una asesoría completa y alcanza tus objetivos con un plan diseñado específicamente para ti." 
+    buttonText="Conoce Más" 
+    buttonLink="/asesorias" 
+  />
+</Layout>
+
+<script>
+  // Importaciones
+  import tippy from 'tippy.js';
+  import 'tippy.js/dist/tippy.css';
+  import { Chart } from 'chart.js/auto';
+
+  // Tipos
+  interface Macros {
+    proteina: number;
+    grasa: number;
+    carbos: number;
+  }
+
+  interface ObjetivoFactores {
+    [key: string]: number;
+  }
+
+  // Constantes
+  const MAX_CALCULOS: number = 3;
+  let calculosRealizados: number = 0;
+  const FACTORES_OBJETIVO: ObjetivoFactores = {
+    mantenimiento: 1,
+    deficit_ligero: 0.85,
+    deficit_moderado: 0.80,
+    deficit_extremo: 0.70,
+    aumento_ligero: 1,
+    aumento_moderado: 1.05,
+    aumento_extremo: 1.10
+  };
+
+  const FACTORES_GRASA: ObjetivoFactores = {
+    alto_en_grasas: 1.2,
+    moderado_en_grasas: 1,
+    balanceado_en_grasas: 0.8
+  };
+
+  // Funciones de cálculo
+  const calcularMasaMagra = (peso: number, grasa: number): number => {
+    return peso * (1 - (grasa / 100));
+  };
+
+  const calcularTMB = (masaMagra: number): number => {
+    return 370 + (21.6 * masaMagra);
+  };
+
+  const calcularCalorias = (tmb: number, actividad: string, objetivo: string): number => {
+    const mantenimiento: number = tmb * parseFloat(actividad);
+    return Math.round(mantenimiento * FACTORES_OBJETIVO[objetivo]);
+  };
+
+  const calcularMacros = (peso: number, calorias: number, objetivo: string): Macros => {
+    const proteina: number = Math.round(peso * 2.4);
+    const grasa: number = Math.round(peso * FACTORES_GRASA.moderado_en_grasas);
+    const caloriasRestantes: number = calorias - (proteina * 4) - (grasa * 9);
+    const carbos: number = Math.round(caloriasRestantes / 4);
+
+    return { proteina, grasa, carbos };
+  };
+
+  // Funciones de UI
+  const mostrarResultados = (calorias: number, macros: Macros): void => {
+    const resultadosDiv: HTMLElement | null = document.getElementById('resultados');
+    if (!resultadosDiv) return;
+
+    resultadosDiv.innerHTML = `
+      <div class="bg-white rounded-xl p-6 lg:p-8 shadow-lg border border-gray-100">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-8 font-opensauce text-center">
+          Resultados de la Calculadora
+        </h2>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          <!-- Gráfico -->
+          <div class="bg-gray-50 p-6 rounded-lg flex justify-center items-center">
+            <div class="w-full max-w-[400px]">
+              <canvas id="macrosChart"></canvas>
+            </div>
+          </div>
+          
+          <!-- Resultados numéricos -->
+          <div class="space-y-6">
+            <div class="bg-gray-50 p-6 rounded-lg">
+              <h3 class="text-xl font-bold mb-6 font-opensauce">Distribución Diaria</h3>
+              
+              <div class="space-y-4">
+                <div class="flex justify-between items-center p-3 bg-white rounded-lg">
+                  <span class="font-agrandir text-gray-700">Calorías Totales</span>
+                  <span class="text-2xl font-bold text-coral">${calorias} kcal</span>
+                </div>
+                
+                <div class="flex justify-between items-center p-3 bg-white rounded-lg">
+                  <div class="flex items-center">
+                    <div class="w-3 h-3 rounded-full bg-[#FF6B6B] mr-2"></div>
+                    <span class="font-agrandir text-gray-700">Proteína</span>
+                  </div>
+                  <span class="text-xl font-bold text-coral">${macros.proteina}g</span>
+                </div>
+                
+                <div class="flex justify-between items-center p-3 bg-white rounded-lg">
+                  <div class="flex items-center">
+                    <div class="w-3 h-3 rounded-full bg-[#4ECDC4] mr-2"></div>
+                    <span class="font-agrandir text-gray-700">Carbohidratos</span>
+                  </div>
+                  <span class="text-xl font-bold text-coral">${macros.carbos}g</span>
+                </div>
+                
+                <div class="flex justify-between items-center p-3 bg-white rounded-lg">
+                  <div class="flex items-center">
+                    <div class="w-3 h-3 rounded-full bg-[#45B7D1] mr-2"></div>
+                    <span class="font-agrandir text-gray-700">Grasas</span>
+                  </div>
+                  <span class="text-xl font-bold text-coral">${macros.grasa}g</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Añadir sección de newsletter -->
+      <div class="mt-8 bg-gradient-to-r from-coral to-salmon p-6 rounded-xl text-white">
+        <div class="text-center">
+          <h3 class="text-xl font-bold mb-2 font-opensauce">¿Quieres más consejos nutricionales?</h3>
+          <p class="mb-4">Únete a nuestro newsletter y recibe tips semanales, recetas saludables y guías exclusivas.</p>
+          
+          <form id="newsletterForm" class="max-w-md mx-auto">
+            <div class="flex gap-2">
+              <input 
+                type="email" 
+                id="newsletterEmail" 
+                placeholder="Tu correo electrónico" 
+                class="flex-1 px-4 py-2 rounded-lg text-gray-800"
+                required
+              >
+              <button 
+                type="submit" 
+                class="bg-black hover:bg-gray-800 px-6 py-2 rounded-lg transition duration-300"
+              >
+                Unirme
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    `;
+    
+    resultadosDiv.classList.remove('hidden');
+
+    // Inicializar el gráfico
+    const ctx = document.getElementById('macrosChart') as HTMLCanvasElement;
+    
+    new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Proteína', 'Carbohidratos', 'Grasas'],
+        datasets: [{
+          data: [
+            macros.proteina * 4,
+            macros.carbos * 4,
+            macros.grasa * 9
+          ],
+          backgroundColor: ['#FF6B6B', '#4ECDC4', '#45B7D1']
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              font: {
+                family: 'Agrandir'
+              }
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                const label = context.label || '';
+                const value = context.raw || 0;
+                const percentage = Math.round((Number(value) / context.dataset.data.reduce((a: number, b: number) => a + b, 0)) * 100);
+                return `${label}: ${percentage}%`;
+              }
+            }
+          }
+        }
+      }
+    });
+  };
+
+  // Event Listeners
+  const calcularBtn = document.getElementById('calcularBtn');
+
+  if (calcularBtn) {
+    calcularBtn.addEventListener('click', (e: Event) => {
+      e.preventDefault();
+      
+      if (calculosRealizados >= MAX_CALCULOS) {
+        alert('Has alcanzado el límite de cálculos permitidos. Por favor, refresca la página para continuar.');
+        return;
+      }
+      
+      const peso = parseFloat((document.getElementById('peso') as HTMLInputElement)?.value || '0');
+      const grasa = parseFloat((document.getElementById('grasa') as HTMLInputElement)?.value || '0');
+      const actividad = (document.getElementById('actividad') as HTMLSelectElement)?.value || '1.2';
+      const objetivo = (document.getElementById('objetivo') as HTMLSelectElement)?.value || 'mantenimiento';
+
+      if (!peso || !grasa) {
+        alert('Por favor completa todos los campos requeridos');
+        return;
+      }
+
+      calculosRealizados++;
+      if (calculosRealizados === MAX_CALCULOS) {
+        calcularBtn.classList.add('opacity-50', 'cursor-not-allowed');
+      }
+
+      const masaMagra = calcularMasaMagra(peso, grasa);
+      const tmb = calcularTMB(masaMagra);
+      const calorias = calcularCalorias(tmb, actividad, objetivo);
+      const macros = calcularMacros(peso, calorias, objetivo);
+
+      mostrarResultados(calorias, macros);
+    });
+  }
+
+  // Inicializar tooltips
+  tippy('[data-tippy-content]');
+</script>
+
+<style>
+  @media (max-width: 768px) {
+    .grid-cols-1 > div {
+      margin-bottom: 1.5rem;
+    }
+    #macrosChart {
+      max-height: 300px;
+    }
+  }
+</style>
