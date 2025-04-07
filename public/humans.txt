@@ -1,0 +1,9 @@
+/* TEAM */
+Developer: byVivifit
+Site: https://byvivifit.com
+Location: Vancuver - Canada
+
+/* SITE */
+Last update: 2024/03/14
+Standards: HTML5, CSS3, JavaScript
+Components: Astro, React, TailwindCSS

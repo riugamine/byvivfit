@@ -7,12 +7,19 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 interface Props {
   title: string;
   description?: string;
+  image?: string;
+  canonicalURL?: string;
 }
 
 const { 
   title, 
-  description = "Transforma tu cuerpo con el método Vivi Fit. Especialista en entrenamiento de glúteos y nutrición personalizada." 
+  description = "Transforma tu cuerpo con el método Vivi Fit. Especialista en entrenamiento de glúteos y nutrición personalizada.",
+  image = "/images/home-og.jpg",
+  canonicalURL = Astro.url.href
 } = Astro.props;
+
+// Format title
+const siteTitle = `${title} | byVivifit`;
 ---
 
 <!DOCTYPE html>
@@ -20,10 +27,36 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Primary Meta Tags -->
+    <title>{siteTitle}</title>
+    <meta name="title" content={siteTitle} />
     <meta name="description" content={description} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={siteTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Additional SEO tags -->
+    <meta name="robots" content="index, follow">
     <meta name="generator" content={Astro.generator} />
-    <title>{title} | byVivifit</title>
   </head>
   <body>
     <Header />

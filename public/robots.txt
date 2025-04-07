@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://byvivifit.com/sitemap-index.xml
