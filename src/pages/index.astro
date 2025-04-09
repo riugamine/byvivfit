@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import CallToAction from "../components/common/CallToAction.astro";
 import { Image } from "astro:assets";
-import { animate } from "motion";
+import AnimatedBackground from "../components/AnimatedBackground";
 ---
 
 <Layout
@@ -12,13 +12,13 @@ import { animate } from "motion";
 >
   <!-- Hero Section - Optimizado -->
   <section
-    class="pt-20 sm:pt-24 md:pt-32 pb-12 bg-gradient-to-r from-coral to-salmon text-white"
-  >
-    <div class="container mx-auto px-4">
+    class="pt-20 sm:pt-24 md:pt-32 pb-12 relative overflow-hidden text-white">
+    <AnimatedBackground client:load />
+    <div class="container mx-auto px-4 relative z-10">
       <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
         <div class="md:w-1/2 text-center md:text-left">
           <h1
-            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-opensauce font-bold mb-4 leading-tight bg-clip-text text-transparent"
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-opensauce font-bold mb-4 leading-tight bg-clip-text"
           >
             Transforma tus glúteos con el método byVivifit
           </h1>
@@ -46,7 +46,7 @@ import { animate } from "motion";
           </div>
         </div>
         <div class="md:w-1/2">
-          <div id="heroImage" class="relative">
+          <div class="relative">
             <Image
               src="https://res.cloudinary.com/dhzl31kb8/image/upload/v1744213204/vivi_sin_fondo_xv1pbo.png"
               alt="Vivi Fit entrenando"
@@ -234,36 +234,3 @@ import { animate } from "motion";
   buttonLink="https://app.byvivifit.com"
 />
 </Layout>
-
-<script>
-  // Title animation
-  animate(
-    "#heroTitle",
-    { 
-      background: [
-        "linear-gradient(45deg, #ff6b6b, #ff8787)",
-        "linear-gradient(45deg, #ff8787, #ffa8a8)",
-        "linear-gradient(45deg, #ffa8a8, #ff6b6b)"
-      ]
-    },
-    { 
-      duration: 3,
-      repeat: Infinity,
-      easing: "ease-in-out"
-    }
-  );
-
-  // Image animation
-  animate(
-    "#heroImage",
-    { 
-      y: [0, -10, 0],
-      opacity: [0.8, 1, 0.8]
-    },
-    { 
-      duration: 2,
-      repeat: Infinity,
-      easing: "ease-in-out"
-    }
-  );
-</script>
