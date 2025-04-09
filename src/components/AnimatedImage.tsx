@@ -15,7 +15,7 @@ export default function AnimatedImage({ src, alt, width, height, className }: Pr
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 2 }}
       whileHover={{ scale: 1.02 }}
     >
       <img 
