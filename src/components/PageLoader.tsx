@@ -35,6 +35,12 @@ export default function PageLoader() {
 
           // 2. Small pause
           await new Promise(resolve => setTimeout(resolve, 300));
+          
+          // Hide the line before panels split
+          const lineElement = document.querySelector('[data-line-element]');
+          if (lineElement instanceof HTMLElement) {
+            lineElement.style.opacity = '0';
+          }
 
           // 3. Split the panels
           const leftAnim = animate(
@@ -109,7 +115,8 @@ export default function PageLoader() {
         style={{ transform: rightTransform }}
       ></motion.div>
       <motion.div 
-        className="absolute w-0.5 bg-white z-10"
+        data-line-element
+        className="absolute w-0.5 bg-white z-10 transition-opacity duration-300"
         style={{ 
           height: lineHeightTemplate,
           top: "0%",

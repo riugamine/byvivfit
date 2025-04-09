@@ -10,14 +10,15 @@ export default function AnimatedBackground() {
       scope.current,
       { 
         backgroundImage: [
-          "linear-gradient(90deg, #FF6B6B 0%, #FF8E8E 100%)",
-          "linear-gradient(90deg, #FF8E8E 0%, #FFA5A5 100%)",
-          "linear-gradient(90deg, #FF6B6B 0%, #FF8E8E 100%)"
+            "linear-gradient(90deg, #FF6B6B 0%, rgb(229, 100, 252) 100%)",
+            "linear-gradient(90deg, #FF4081 0%, #FF9E80 100%)",
+            "linear-gradient(90deg,rgb(229, 100, 252) 0%, #FF6B6B 100%)"
         ]
       },
       {
         duration: 3,
         repeat: Infinity,
+        repeatType: "loop",
       }
     );
   }, [animate]);
