@@ -1,34 +1,44 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import CallToAction from '../components/common/CallToAction.astro';
-import { Image } from 'astro:assets';
+import Layout from "../layouts/Layout.astro";
+import CallToAction from "../components/common/CallToAction.astro";
+import { Image } from "astro:assets";
+import { animate } from "motion";
 ---
 
-<Layout 
+<Layout
   title="Inicio - Especialista en Entrenamiento de Glúteos"
   description="Transforma tus glúteos con el método byVivifit. Entrenamiento especializado y nutrición personalizada para resultados reales."
-  image="/images/home-og.jpg"
+  image="https://res.cloudinary.com/dhzl31kb8/image/upload/v1744208905/home-og_uyxt0o.jpg"
 >
   <!-- Hero Section - Optimizado -->
-  <section class="pt-20 sm:pt-24 md:pt-32 pb-12 bg-gradient-to-r from-coral to-salmon text-white">
+  <section
+    class="pt-20 sm:pt-24 md:pt-32 pb-12 bg-gradient-to-r from-coral to-salmon text-white"
+  >
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
         <div class="md:w-1/2 text-center md:text-left">
-          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-opensauce font-bold mb-4 leading-tight">
+          <h1
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-opensauce font-bold mb-4 leading-tight bg-clip-text text-transparent"
+          >
             Transforma tus glúteos con el método byVivifit
           </h1>
-          <p class="text-lg sm:text-xl mb-8 font-agrandir max-w-2xl mx-auto md:mx-0">
-            Entrenamiento especializado para mujeres que buscan resultados reales y duraderos.
+          <p
+            class="text-lg sm:text-xl mb-8 font-agrandir max-w-2xl mx-auto md:mx-0"
+          >
+            Entrenamiento especializado para mujeres que buscan resultados
+            reales y duraderos.
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <a 
-              href="https://app.byvivifit.com" 
+          <div
+            class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+          >
+            <a
+              href="https://app.byvivifit.com"
               class="w-full sm:w-auto bg-white text-coral px-6 sm:px-8 py-3 rounded-full font-opensauce font-bold text-base sm:text-lg hover:bg-black hover:text-white transition duration-300 text-center"
             >
               Comprar Ahora
             </a>
-            <a 
-              href="/el-metodo" 
+            <a
+              href="/el-metodo"
               class="w-full sm:w-auto bg-transparent border-2 border-white text-white px-6 sm:px-8 py-3 rounded-full font-opensauce font-bold text-base sm:text-lg hover:bg-white hover:text-coral transition duration-300 text-center"
             >
               Conoce el Método
@@ -36,145 +46,224 @@ import { Image } from 'astro:assets';
           </div>
         </div>
         <div class="md:w-1/2">
-          <Image 
-            src="/images/hero-image.jpg" 
-            alt="Vivi Fit entrenando" 
-            width={600} 
-            height={600} 
-            class="rounded-lg shadow-xl w-full max-w-lg mx-auto"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Section - Optimizado -->
-  <section class="py-12 sm:py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-opensauce font-bold text-center mb-8 sm:mb-12">
-        ¿Por qué elegir el método byVivifit?
-      </h2>
-      
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-        <div class="bg-gray-50 p-6 sm:p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300">
-          <div class="text-coral text-3xl sm:text-4xl mb-4">
-            <i class="fas fa-dumbbell"></i>
-          </div>
-          <h3 class="text-xl sm:text-2xl font-opensauce font-bold mb-3 sm:mb-4">Entrenamiento Especializado</h3>
-          <p class="font-agrandir text-gray-700">Rutinas diseñadas específicamente para el desarrollo de glúteos, adaptadas a tu nivel y necesidades.</p>
-        </div>
-
-        <div class="bg-gray-50 p-6 sm:p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300">
-          <div class="text-coral text-3xl sm:text-4xl mb-4">
-            <i class="fas fa-apple-alt"></i>
-          </div>
-          <h3 class="text-xl sm:text-2xl font-opensauce font-bold mb-3 sm:mb-4">Nutrición Inteligente</h3>
-          <p class="font-agrandir text-gray-700">Plan nutricional flexible que te permite disfrutar de la comida mientras alcanzas tus objetivos.</p>
-        </div>
-
-        <div class="bg-gray-50 p-6 sm:p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300">
-          <div class="text-coral text-3xl sm:text-4xl mb-4">
-            <i class="fas fa-heart"></i>
-          </div>
-          <h3 class="text-xl sm:text-2xl font-opensauce font-bold mb-3 sm:mb-4">Estilo de Vida</h3>
-          <p class="font-agrandir text-gray-700">Aprende a mantener un equilibrio saludable entre el fitness y tu vida social y familiar.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Glutes Section - Optimizado -->
-  <section class="py-12 sm:py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-        <div class="md:w-1/2">
-          <Image 
-            src="/images/glutes-training.jpg" 
-            alt="Entrenamiento de glúteos" 
-            width={600} 
-            height={600} 
-            class="rounded-lg shadow-xl w-full max-w-lg mx-auto"
-          />
-        </div>
-        <div class="md:w-1/2">
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-opensauce font-bold mb-4 sm:mb-6 text-center md:text-left">
-            Especialista en entrenamiento de glúteos
-          </h2>
-          <p class="text-base sm:text-lg mb-4 font-agrandir text-gray-700">
-            El entrenamiento de glúteos no solo mejora tu estética, sino que también fortalece tu core, mejora tu postura y previene lesiones.
-          </p>
-          <p class="text-base sm:text-lg mb-6 font-agrandir text-gray-700">
-            Con mi método, aprenderás las técnicas correctas para activar y desarrollar tus glúteos de manera efectiva, sin importar tu genética o punto de partida.
-          </p>
-          <ul class="space-y-3 mb-6 sm:mb-8 font-agrandir">
-            <li class="flex items-start">
-              <i class="fas fa-check text-coral mt-1 mr-3 flex-shrink-0"></i>
-              <span class="text-gray-700">Ejercicios específicos para cada parte del glúteo</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check text-coral mt-1 mr-3 flex-shrink-0"></i>
-              <span class="text-gray-700">Técnicas avanzadas de activación y conexión mente-músculo</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check text-coral mt-1 mr-3 flex-shrink-0"></i>
-              <span class="text-gray-700">Programas personalizados según tu morfología y objetivos</span>
-            </li>
-          </ul>
-          <!-- Otros items de lista con el mismo patrón -->
-          </ul>
-          <div class="text-center md:text-left">
-            <a 
-              href="/el-metodo" 
-              class="inline-block bg-coral text-white px-6 sm:px-8 py-3 rounded-full font-opensauce font-bold text-base sm:text-lg hover:bg-salmon transition duration-300"
-            >
-              Descubre más
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section - Optimizado -->
-  <section class="py-12 sm:py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-opensauce font-bold text-center mb-8 sm:mb-12">
-        Transformaciones reales
-      </h2>
-      
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-          <div class="flex items-center mb-4">
-            <Image 
-              src="/images/testimonial-1.jpg" 
-              alt="Testimonio 1" 
-              width={60} 
-              height={60} 
-              class="rounded-full w-12 h-12 sm:w-14 sm:h-14 object-cover"
+          <div id="heroImage" class="relative">
+            <Image
+              src="https://res.cloudinary.com/dhzl31kb8/image/upload/v1744213204/vivi_sin_fondo_xv1pbo.png"
+              alt="Vivi Fit entrenando"
+              width={400}
+              height={800}
+              class="rounded-lg shadow-xl w-full max-w-md mx-auto object-cover object-center h-[600px]"
             />
-            <div class="ml-4">
-              <h4 class="font-opensauce font-bold text-base sm:text-lg">Laura M.</h4>
-              <div class="text-coral">
-                <i class="fas fa-star text-sm sm:text-base"></i>
-                <i class="fas fa-star text-sm sm:text-base"></i>
-                <i class="fas fa-star text-sm sm:text-base"></i>
-                <i class="fas fa-star text-sm sm:text-base"></i>
-                <i class="fas fa-star text-sm sm:text-base"></i>
-              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Features Section - Optimizado -->
+<section class="py-12 sm:py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <h2
+      class="text-2xl sm:text-3xl md:text-4xl font-opensauce font-bold text-center mb-8 sm:mb-12"
+    >
+      ¿Por qué elegir el método byVivifit?
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+      <div
+        class="bg-gray-50 p-6 sm:p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300"
+      >
+        <div class="text-coral text-3xl sm:text-4xl mb-4">
+          <i class="fas fa-dumbbell"></i>
+        </div>
+        <h3 class="text-xl sm:text-2xl font-opensauce font-bold mb-3 sm:mb-4">
+          Entrenamiento Especializado
+        </h3>
+        <p class="font-agrandir text-gray-700">
+          Rutinas diseñadas específicamente para el desarrollo de glúteos,
+          adaptadas a tu nivel y necesidades.
+        </p>
+      </div>
+
+      <div
+        class="bg-gray-50 p-6 sm:p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300"
+      >
+        <div class="text-coral text-3xl sm:text-4xl mb-4">
+          <i class="fas fa-apple-alt"></i>
+        </div>
+        <h3 class="text-xl sm:text-2xl font-opensauce font-bold mb-3 sm:mb-4">
+          Nutrición Inteligente
+        </h3>
+        <p class="font-agrandir text-gray-700">
+          Plan nutricional flexible que te permite disfrutar de la comida
+          mientras alcanzas tus objetivos.
+        </p>
+      </div>
+
+      <div
+        class="bg-gray-50 p-6 sm:p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300"
+      >
+        <div class="text-coral text-3xl sm:text-4xl mb-4">
+          <i class="fas fa-heart"></i>
+        </div>
+        <h3 class="text-xl sm:text-2xl font-opensauce font-bold mb-3 sm:mb-4">
+          Estilo de Vida
+        </h3>
+        <p class="font-agrandir text-gray-700">
+          Aprende a mantener un equilibrio saludable entre el fitness y tu vida
+          social y familiar.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Glutes Section - Optimizado -->
+<section class="py-12 sm:py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+      <div class="md:w-1/2">
+        <Image
+          src="/images/glutes-training.jpg"
+          alt="Entrenamiento de glúteos"
+          width={600}
+          height={600}
+          class="rounded-lg shadow-xl w-full max-w-lg mx-auto"
+        />
+      </div>
+      <div class="md:w-1/2">
+        <h2
+          class="text-2xl sm:text-3xl md:text-4xl font-opensauce font-bold mb-4 sm:mb-6 text-center md:text-left"
+        >
+          Especialista en entrenamiento de glúteos
+        </h2>
+        <p class="text-base sm:text-lg mb-4 font-agrandir text-gray-700">
+          El entrenamiento de glúteos no solo mejora tu estética, sino que
+          también fortalece tu core, mejora tu postura y previene lesiones.
+        </p>
+        <p class="text-base sm:text-lg mb-6 font-agrandir text-gray-700">
+          Con mi método, aprenderás las técnicas correctas para activar y
+          desarrollar tus glúteos de manera efectiva, sin importar tu genética o
+          punto de partida.
+        </p>
+        <ul class="space-y-3 mb-6 sm:mb-8 font-agrandir">
+          <li class="flex items-start">
+            <i class="fas fa-check text-coral mt-1 mr-3 flex-shrink-0"></i>
+            <span class="text-gray-700"
+              >Ejercicios específicos para cada parte del glúteo</span
+            >
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check text-coral mt-1 mr-3 flex-shrink-0"></i>
+            <span class="text-gray-700"
+              >Técnicas avanzadas de activación y conexión mente-músculo</span
+            >
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check text-coral mt-1 mr-3 flex-shrink-0"></i>
+            <span class="text-gray-700"
+              >Programas personalizados según tu morfología y objetivos</span
+            >
+          </li>
+        </ul>
+        <!-- Otros items de lista con el mismo patrón -->
+      </div>
+      <div class="text-center md:text-left">
+        <a
+          href="/el-metodo"
+          class="inline-block bg-coral text-white px-6 sm:px-8 py-3 rounded-full font-opensauce font-bold text-base sm:text-lg hover:bg-salmon transition duration-300"
+        >
+          Descubre más
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section - Optimizado -->
+<section class="py-12 sm:py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <h2
+      class="text-2xl sm:text-3xl md:text-4xl font-opensauce font-bold text-center mb-8 sm:mb-12"
+    >
+      Transformaciones reales
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+      <div
+        class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+      >
+        <div class="flex items-center mb-4">
+          <Image
+            src="/images/testimonial-1.jpg"
+            alt="Testimonio 1"
+            width={60}
+            height={60}
+            class="rounded-full w-12 h-12 sm:w-14 sm:h-14 object-cover"
+          />
+          <div class="ml-4">
+            <h4 class="font-opensauce font-bold text-base sm:text-lg">
+              Laura M.
+            </h4>
+            <div class="text-coral">
+              <i class="fas fa-star text-sm sm:text-base"></i>
+              <i class="fas fa-star text-sm sm:text-base"></i>
+              <i class="fas fa-star text-sm sm:text-base"></i>
+              <i class="fas fa-star text-sm sm:text-base"></i>
+              <i class="fas fa-star text-sm sm:text-base"></i>
             </div>
           </div>
-          <p class="italic font-agrandir text-gray-700 text-sm sm:text-base">"Después de 3 meses siguiendo el método byVivifit, no solo he notado cambios en mis glúteos, sino en todo mi cuerpo. ¡La mejor inversión que he hecho!"</p>
         </div>
-        <!-- Otros testimonios con el mismo patrón -->
+        <p class="italic font-agrandir text-gray-700 text-sm sm:text-base">
+          "Después de 3 meses siguiendo el método byVivifit, no solo he notado
+          cambios en mis glúteos, sino en todo mi cuerpo. ¡La mejor inversión
+          que he hecho!"
+        </p>
       </div>
+      <!-- Otros testimonios con el mismo patrón -->
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Call to Action -->
-  <CallToAction 
-    title="¿Lista para transformar tu cuerpo?" 
-    subtitle="Únete a miles de mujeres que ya han cambiado su vida con el método byVivifit" 
-    buttonText="Comenzar Ahora" 
-    buttonLink="https://app.byvivifit.com" 
-  />
+<!-- Call to Action -->
+<CallToAction
+  title="¿Lista para transformar tu cuerpo?"
+  subtitle="Únete a miles de mujeres que ya han cambiado su vida con el método byVivifit"
+  buttonText="Comenzar Ahora"
+  buttonLink="https://app.byvivifit.com"
+/>
 </Layout>
+
+<script>
+  // Title animation
+  animate(
+    "#heroTitle",
+    { 
+      background: [
+        "linear-gradient(45deg, #ff6b6b, #ff8787)",
+        "linear-gradient(45deg, #ff8787, #ffa8a8)",
+        "linear-gradient(45deg, #ffa8a8, #ff6b6b)"
+      ]
+    },
+    { 
+      duration: 3,
+      repeat: Infinity,
+      easing: "ease-in-out"
+    }
+  );
+
+  // Image animation
+  animate(
+    "#heroImage",
+    { 
+      y: [0, -10, 0],
+      opacity: [0.8, 1, 0.8]
+    },
+    { 
+      duration: 2,
+      repeat: Infinity,
+      easing: "ease-in-out"
+    }
+  );
+</script>
