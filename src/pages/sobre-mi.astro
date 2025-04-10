@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
+import FeatureCard from '../components/FeatureCard';
 ---
 
 <Layout title="Sobre Mí - Conoce a tu entrenadora">
@@ -23,7 +24,7 @@ import { Image } from 'astro:assets';
         </div>
         <div class="md:w-1/2 flex justify-center">
           <Image 
-            src="/images/vivi-profile.jpg" 
+            src="https://res.cloudinary.com/dhzl31kb8/image/upload/c_scale,w_300,q_auto,f_auto/v1744212955/IMG_1150_asab0a.jpg" 
             alt="Vivi - Entrenadora Personal" 
             width={400} 
             height={500} 
@@ -42,7 +43,7 @@ import { Image } from 'astro:assets';
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div class="order-2 md:order-1">
           <Image 
-            src="/images/vivi-training.jpg" 
+            src="https://res.cloudinary.com/dhzl31kb8/image/upload/v1744212954/IMG_0948_cxi1b4.jpg" 
             alt="Vivi entrenando" 
             width={500} 
             height={400} 
@@ -86,38 +87,38 @@ import { Image } from 'astro:assets';
     </div>
   </section>
 
-  <!-- Mi Filosofía Section - Optimizado para móviles -->
-  <section class="py-10 md:py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl sm:text-3xl font-opensauce font-bold text-center mb-8 md:mb-12">Mi Filosofía</h2>
+<!-- Mi Filosofía Section - Optimizado para móviles -->
+<section class="py-10 md:py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <h2 class="text-2xl sm:text-3xl font-opensauce font-bold text-center mb-8 md:mb-12">Mi Filosofía</h2>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+      <FeatureCard 
+        icon="fa-brain" 
+        title="Mentalidad Primero" 
+        description="Creo que el verdadero cambio comienza en la mente. Te ayudaré a desarrollar una relación saludable con tu cuerpo y el ejercicio."
+        delay={0}
+        client:visible
+      />
       
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md text-center">
-          <div class="text-coral text-3xl md:text-4xl mb-4">
-            <i class="fas fa-brain"></i>
-          </div>
-          <h3 class="text-lg sm:text-xl font-opensauce font-bold mb-3 md:mb-4">Mentalidad Primero</h3>
-          <p class="font-agrandir text-sm sm:text-base">Creo que el verdadero cambio comienza en la mente. Te ayudaré a desarrollar una relación saludable con tu cuerpo y el ejercicio.</p>
-        </div>
-        
-        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md text-center">
-          <div class="text-coral text-3xl md:text-4xl mb-4">
-            <i class="fas fa-balance-scale"></i>
-          </div>
-          <h3 class="text-lg sm:text-xl font-opensauce font-bold mb-3 md:mb-4">Equilibrio Sostenible</h3>
-          <p class="font-agrandir text-sm sm:text-base">No creo en dietas extremas ni entrenamientos agotadores. Mi enfoque se basa en cambios sostenibles que puedas mantener a largo plazo.</p>
-        </div>
-        
-        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md text-center sm:col-span-2 md:col-span-1 sm:max-w-md sm:mx-auto md:max-w-none">
-          <div class="text-coral text-3xl md:text-4xl mb-4">
-            <i class="fas fa-users"></i>
-          </div>
-          <h3 class="text-lg sm:text-xl font-opensauce font-bold mb-3 md:mb-4">Comunidad y Apoyo</h3>
-          <p class="font-agrandir text-sm sm:text-base">Al unirte a byVivifit, no solo obtienes una entrenadora, sino una comunidad de mujeres que comparten tus objetivos y desafíos.</p>
-        </div>
-      </div>
+      <FeatureCard 
+        icon="fa-balance-scale" 
+        title="Equilibrio Sostenible" 
+        description="No creo en dietas extremas ni entrenamientos agotadores. Mi enfoque se basa en cambios sostenibles que puedas mantener a largo plazo."
+        delay={0.2}
+        client:visible
+      />
+      
+      <FeatureCard 
+        icon="fa-users" 
+        title="Comunidad y Apoyo" 
+        description="Al unirte a byVivifit, no solo obtienes una entrenadora, sino una comunidad de mujeres que comparten tus objetivos y desafíos."
+        delay={0.4}
+        client:visible
+      />
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Certificaciones Section - Mejorado para móviles -->
   <section class="py-10 md:py-16 bg-white">
@@ -129,33 +130,34 @@ import { Image } from 'astro:assets';
       
       <!-- Certificaciones Tabs - Optimizado para móviles -->
       <div class="certification-container">
-        <!-- Tabs Navigation - Mejorado para móviles -->
-        <div class="flex flex-wrap justify-center mb-6 md:mb-8" id="certification-tabs">
-          <button class="px-4 sm:px-6 py-2 sm:py-3 mx-1 sm:mx-2 mb-2 bg-gray-100 rounded-full font-opensauce font-bold text-black hover:bg-coral hover:text-white transition duration-300 certification-tab active text-xs sm:text-sm md:text-base" data-tab="cert1">
-            <i class="fas fa-running mr-1 sm:mr-2 hidden sm:inline"></i>Entrenamiento
-          </button>
-          <button class="px-4 sm:px-6 py-2 sm:py-3 mx-1 sm:mx-2 mb-2 bg-gray-100 rounded-full font-opensauce font-bold text-black hover:bg-coral hover:text-white transition duration-300 certification-tab text-xs sm:text-sm md:text-base" data-tab="cert2">
-            <i class="fas fa-apple-alt mr-1 sm:mr-2 hidden sm:inline"></i>Nutrición
-          </button>
-          <button class="px-4 sm:px-6 py-2 sm:py-3 mx-1 sm:mx-2 mb-2 bg-gray-100 rounded-full font-opensauce font-bold text-black hover:bg-coral hover:text-white transition duration-300 certification-tab text-xs sm:text-sm md:text-base" data-tab="cert3">
-            <i class="fas fa-fire mr-1 sm:mr-2 hidden sm:inline"></i>Glúteos
-          </button>
-          <button class="px-4 sm:px-6 py-2 sm:py-3 mx-1 sm:mx-2 mb-2 bg-gray-100 rounded-full font-opensauce font-bold text-black hover:bg-coral hover:text-white transition duration-300 certification-tab text-xs sm:text-sm md:text-base" data-tab="cert4">
-            <i class="fas fa-brain mr-1 sm:mr-2 hidden sm:inline"></i>Coaching
-          </button>
-        </div>
+        <div class="certification-container">
+          <!-- Tabs Navigation - Mejorado para móviles -->
+          <div class="flex flex-wrap justify-center mb-6 md:mb-8 gap-2" id="certification-tabs">
+            <button class="px-4 sm:px-6 py-2 sm:py-3 bg-gray-100 rounded-full font-opensauce font-bold text-black hover:bg-coral hover:text-white transition duration-300 certification-tab active text-xs sm:text-sm md:text-base" data-tab="cert1">
+              <i class="fas fa-running mr-1 sm:mr-2 hidden sm:inline"></i>Entrenamiento
+            </button>
+            <button class="px-4 sm:px-6 py-2 sm:py-3 bg-gray-100 rounded-full font-opensauce font-bold text-black hover:bg-coral hover:text-white transition duration-300 certification-tab text-xs sm:text-sm md:text-base" data-tab="cert2">
+              <i class="fas fa-apple-alt mr-1 sm:mr-2 hidden sm:inline"></i>Nutrición
+            </button>
+            <button class="px-4 sm:px-6 py-2 sm:py-3 bg-gray-100 rounded-full font-opensauce font-bold text-black hover:bg-coral hover:text-white transition duration-300 certification-tab text-xs sm:text-sm md:text-base" data-tab="cert3">
+              <i class="fas fa-fire mr-1 sm:mr-2 hidden sm:inline"></i>Glúteos
+            </button>
+            <button class="px-4 sm:px-6 py-2 sm:py-3 bg-gray-100 rounded-full font-opensauce font-bold text-black hover:bg-coral hover:text-white transition duration-300 certification-tab text-xs sm:text-sm md:text-base" data-tab="cert4">
+              <i class="fas fa-brain mr-1 sm:mr-2 hidden sm:inline"></i>Coaching
+            </button>
+          </div>
         
         <!-- Tabs Content -->
         <div class="certification-content">
           <div class="certification-panel active" id="cert1">
             <div class="flex flex-col md:flex-row items-center bg-gray-50 rounded-lg overflow-hidden shadow-lg">
-              <div class="w-full md:w-1/2">
+              <div class="w-full md:w-1/2 h-64 md:h-auto">
                 <Image 
-                  src="/images/certification-1.jpg" 
+                  src="https://res.cloudinary.com/dhzl31kb8/image/upload/v1744327357/627e9e12-6f7e-4fd6-9282-25cd936b950d.png" 
                   alt="Certificación en Entrenamiento Funcional" 
                   width={500} 
                   height={350} 
-                  class="w-full h-64 md:h-full object-cover"
+                  class="w-full h-full object-contain md:object-cover"
                 />
               </div>
               <div class="w-full md:w-1/2 p-6 md:p-8">
@@ -181,13 +183,13 @@ import { Image } from 'astro:assets';
           
           <div class="certification-panel hidden" id="cert2">
             <div class="flex flex-col md:flex-row items-center bg-gray-50 rounded-lg overflow-hidden shadow-lg">
-              <div class="w-full md:w-1/2">
+              <div class="w-full md:w-1/2 h-64 md:h-auto">
                 <Image 
-                  src="/images/certification-2.jpg" 
+                  src="https://res.cloudinary.com/dhzl31kb8/image/upload/v1744327442/bca05f58-99f9-4199-a651-db7f67a9768f.png" 
                   alt="Certificación en Nutrición Deportiva" 
                   width={500} 
                   height={350} 
-                  class="w-full h-64 md:h-full object-cover"
+                  class="w-full h-full object-contain md:object-cover"
                 />
               </div>
               <div class="w-full md:w-1/2 p-6 md:p-8">
@@ -213,13 +215,13 @@ import { Image } from 'astro:assets';
           
           <div class="certification-panel hidden" id="cert3">
             <div class="flex flex-col md:flex-row items-center bg-gray-50 rounded-lg overflow-hidden shadow-lg">
-              <div class="w-full md:w-1/2">
+              <div class="w-full md:w-1/2 h-64 md:h-auto">
                 <Image 
-                  src="/images/certification-3.jpg" 
+                  src="https://res.cloudinary.com/dhzl31kb8/image/upload/v1744327424/de1c72f4-b772-4b61-b039-946789e7bd39.png" 
                   alt="Especialización en Entrenamiento de Glúteos" 
                   width={500} 
                   height={350} 
-                  class="w-full h-64 md:h-full object-cover"
+                  class="w-full h-full object-contain md:object-cover"
                 />
               </div>
               <div class="w-full md:w-1/2 p-6 md:p-8">
@@ -245,13 +247,13 @@ import { Image } from 'astro:assets';
           
           <div class="certification-panel hidden" id="cert4">
             <div class="flex flex-col md:flex-row items-center bg-gray-50 rounded-lg overflow-hidden shadow-lg">
-              <div class="w-full md:w-1/2">
+              <div class="w-full md:w-1/2 h-64 md:h-auto flex items-center justify-center">
                 <Image 
-                  src="/images/certification-4.jpg" 
+                  src="https://res.cloudinary.com/dhzl31kb8/image/upload/v1744327569/5be39161-5dfa-440c-ab63-8421fa17718b.png" 
                   alt="Certificación en Coaching Fitness" 
-                  width={500} 
-                  height={350} 
-                  class="w-full h-64 md:h-full object-cover"
+                  width={400} 
+                  height={280} 
+                  class="w-auto max-w-[85%] h-auto max-h-[85%] object-contain p-2 md:p-4"
                 />
               </div>
               <div class="w-full md:w-1/2 p-6 md:p-8">

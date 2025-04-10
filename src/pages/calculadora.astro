@@ -47,6 +47,7 @@ import CallToAction from "../components/common/CallToAction.astro";
                   ></i>
                 </label>
                 <select id="sexo" class="w-full p-3 border rounded-lg">
+                  <option value="">Selecciona tu sexo biológico</option>
                   <option value="masculino">Masculino</option>
                   <option value="femenino">Femenino</option>
                 </select>
@@ -197,16 +198,34 @@ import CallToAction from "../components/common/CallToAction.astro";
             <h3 class="text-lg font-bold mb-4 font-opensauce">
               Referencia Visual de Porcentaje de Grasa
             </h3>
-            <div class="relative">
-              <Image
-                src="/images/references.png"
-                alt="Referencia de porcentajes de grasa corporal"
-                width={1200}
-                height={800}
-                class="w-full rounded-xl shadow-lg"
-                format="webp"
-                quality={90}
-              />
+            <div id="imagenContainer" class="relative">
+              <div id="placeholderText" class="text-center py-12 bg-gray-50 rounded-xl">
+                <p class="text-gray-600 font-agrandir">
+                  Selecciona tu sexo biológico para ver las referencias visuales
+                </p>
+              </div>
+              <div id="imagenHombre" class="hidden">
+                <Image
+                  src="https://res.cloudinary.com/dhzl31kb8/image/upload/v1744229739/hombres_pgp4av.jpg"
+                  alt="Referencia de porcentajes de grasa corporal para hombres"
+                  width={1200}
+                  height={800}
+                  class="w-full rounded-xl shadow-lg"
+                  format="webp"
+                  quality={90}
+                />
+              </div>
+              <div id="imagenMujer" class="hidden">
+                <Image
+                  src="https://res.cloudinary.com/dhzl31kb8/image/upload/v1744229739/mujeres_jhvqe4.jpg"
+                  alt="Referencia de porcentajes de grasa corporal para mujeres"
+                  width={1200}
+                  height={800}
+                  class="w-full rounded-xl shadow-lg"
+                  format="webp"
+                  quality={90}
+                />
+              </div>
             </div>
             <p class="text-sm text-gray-500 mt-2 text-center">
               * Las imágenes son referencias aproximadas. Los porcentajes pueden
@@ -450,74 +469,108 @@ import CallToAction from "../components/common/CallToAction.astro";
 
   // Event Listeners
   const calcularBtn = document.getElementById("calcularBtn");
+  const sexoSelect = document.getElementById("sexo") as HTMLSelectElement;
+  const referenciaImagen = document.getElementById("referenciaImagen") as HTMLImageElement;
+  const placeholderText = document.getElementById("placeholderText");
+
+  if (sexoSelect && referenciaImagen && placeholderText) {
+    actualizarImagenReferencia(sexoSelect.value);
+    
+    sexoSelect.addEventListener("change", () => {
+      actualizarImagenReferencia(sexoSelect.value);
+    });
+  }
+
+  function actualizarImagenReferencia(sexo: string) {
+    const placeholderText = document.getElementById("placeholderText");
+    const imagenHombre = document.getElementById("imagenHombre");
+    const imagenMujer = document.getElementById("imagenMujer");
+  
+    if (!sexo) {
+      placeholderText?.classList.remove('hidden');
+      imagenHombre?.classList.add('hidden');
+      imagenMujer?.classList.add('hidden');
+      return;
+    }
+  
+    placeholderText?.classList.add('hidden');
+    
+    if (sexo === "masculino") {
+      imagenHombre?.classList.remove('hidden');
+      imagenMujer?.classList.add('hidden');
+    } else {
+      imagenHombre?.classList.add('hidden');
+      imagenMujer?.classList.remove('hidden');
+    }
+  }
 
   if (calcularBtn) {
-  calcularBtn.addEventListener("click", (e: Event) => {
-    e.preventDefault();
+    calcularBtn.addEventListener("click", (e: Event) => {
+      e.preventDefault();
 
-    if (calculosRealizados >= MAX_CALCULOS) {
-      alert(
-        "Has alcanzado el límite de cálculos permitidos. Por favor, refresca la página para continuar."
-      );
-      return;
-    }
+      if (calculosRealizados >= MAX_CALCULOS) {
+        alert(
+          "Has alcanzado el límite de cálculos permitidos. Por favor, refresca la página para continuar."
+        );
+        return;
+      }
 
-    // Get form elements
-    const pesoInput = document.getElementById("peso") as HTMLInputElement;
-    const alturaInput = document.getElementById("altura") as HTMLInputElement;
-    const edadInput = document.getElementById("edad") as HTMLInputElement;
-    const grasaSelect = document.getElementById("grasa") as HTMLSelectElement;
-    const actividadSelect = document.getElementById("actividad") as HTMLSelectElement;
-    const objetivoSelect = document.getElementById("objetivo") as HTMLSelectElement;
+      // Get form elements
+      const pesoInput = document.getElementById("peso") as HTMLInputElement;
+      const alturaInput = document.getElementById("altura") as HTMLInputElement;
+      const edadInput = document.getElementById("edad") as HTMLInputElement;
+      const grasaSelect = document.getElementById("grasa") as HTMLSelectElement;
+      const actividadSelect = document.getElementById("actividad") as HTMLSelectElement;
+      const objetivoSelect = document.getElementById("objetivo") as HTMLSelectElement;
 
-    // Validate all required fields are filled
-    if (!pesoInput.value || !alturaInput.value || !edadInput.value || !grasaSelect.value) {
-      alert("Por favor completa todos los campos requeridos");
-      return;
-    }
+      // Validate all required fields are filled
+      if (!pesoInput.value || !alturaInput.value || !edadInput.value || !grasaSelect.value) {
+        alert("Por favor completa todos los campos requeridos");
+        return;
+      }
 
-    // Parse values
-    const peso = parseFloat(pesoInput.value);
-    const altura = parseFloat(alturaInput.value);
-    const edad = parseFloat(edadInput.value);
-    const grasa = parseFloat(grasaSelect.value);
-    const actividad = actividadSelect.value;
-    const objetivo = objetivoSelect.value;
+      // Parse values
+      const peso = parseFloat(pesoInput.value);
+      const altura = parseFloat(alturaInput.value);
+      const edad = parseFloat(edadInput.value);
+      const grasa = parseFloat(grasaSelect.value);
+      const actividad = actividadSelect.value;
+      const objetivo = objetivoSelect.value;
 
-    // Validate ranges
-    if (peso < 30 || peso > 200) {
-      alert("Por favor ingresa un peso válido entre 30 y 200 kg");
-      return;
-    }
+      // Validate ranges
+      if (peso < 30 || peso > 200) {
+        alert("Por favor ingresa un peso válido entre 30 y 200 kg");
+        return;
+      }
 
-    if (altura < 140 || altura > 220) {
-      alert("Por favor ingresa una altura válida entre 140 y 220 cm");
-      return;
-    }
+      if (altura < 140 || altura > 220) {
+        alert("Por favor ingresa una altura válida entre 140 y 220 cm");
+        return;
+      }
 
-    if (edad < 15 || edad > 80) {
-      alert("Por favor ingresa una edad válida entre 15 y 80 años");
-      return;
-    }
+      if (edad < 15 || edad > 80) {
+        alert("Por favor ingresa una edad válida entre 15 y 80 años");
+        return;
+      }
 
-    if (grasa < 3 || grasa > 40) {
-      alert("Por favor selecciona un porcentaje de grasa válido");
-      return;
-    }
+      if (grasa < 3 || grasa > 40) {
+        alert("Por favor selecciona un porcentaje de grasa válido");
+        return;
+      }
 
-    calculosRealizados++;
-    if (calculosRealizados === MAX_CALCULOS) {
-      calcularBtn.classList.add("opacity-50", "cursor-not-allowed");
-    }
+      calculosRealizados++;
+      if (calculosRealizados === MAX_CALCULOS) {
+        calcularBtn.classList.add("opacity-50", "cursor-not-allowed");
+      }
 
-    const masaMagra = calcularMasaMagra(peso, grasa);
-    const tmb = calcularTMB(masaMagra);
-    const calorias = calcularCalorias(tmb, actividad, objetivo);
-    const macros = calcularMacros(peso, calorias, objetivo);
+      const masaMagra = calcularMasaMagra(peso, grasa);
+      const tmb = calcularTMB(masaMagra);
+      const calorias = calcularCalorias(tmb, actividad, objetivo);
+      const macros = calcularMacros(peso, calorias, objetivo);
 
-    mostrarResultados(calorias, macros);
-  });
-}
+      mostrarResultados(calorias, macros);
+    });
+  }
 
   // Inicializar tooltips
   tippy("[data-tippy-content]");

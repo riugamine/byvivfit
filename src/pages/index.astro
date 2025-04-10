@@ -5,6 +5,7 @@ import { Image } from "astro:assets";
 import AnimatedBackground from "../components/AnimatedBackground";
 import FeatureCard from "../components/FeatureCard";
 import PageLoader from "../components/PageLoader";
+import TestimonialCard from "../components/TestimonialCard";
 ---
 
 <Layout
@@ -103,7 +104,7 @@ import PageLoader from "../components/PageLoader";
     <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
       <div class="md:w-1/2">
         <Image
-          src="https://res.cloudinary.com/dhzl31kb8/image/upload/v1744212955/IMG_1109_pratuj.jpg"
+          src="https://res.cloudinary.com/dhzl31kb8/image/upload/c_scale,w_600,q_auto,f_auto/v1744212955/IMG_1109_pratuj.jpg"
           alt="Entrenamiento de glúteos"
           width={600}
           height={600}
@@ -145,15 +146,14 @@ import PageLoader from "../components/PageLoader";
             >
           </li>
         </ul>
-        <!-- Otros items de lista con el mismo patrón -->
-      </div>
-      <div class="text-center md:text-left">
-        <a
-          href="/el-metodo"
-          class="inline-block bg-coral text-white px-6 sm:px-8 py-3 rounded-full font-opensauce font-bold text-base sm:text-lg hover:bg-salmon transition duration-300"
-        >
-          Descubre más
-        </a>
+        <div class="text-center md:text-left">
+          <a
+            href="/el-metodo"
+            class="inline-block bg-coral text-white px-6 sm:px-8 py-3 rounded-full font-opensauce font-bold text-base sm:text-lg hover:bg-salmon transition duration-300"
+          >
+            Descubre más
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -169,37 +169,26 @@ import PageLoader from "../components/PageLoader";
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-      <div
-        class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-      >
-        <div class="flex items-center mb-4">
-          <Image
-            src="/images/testimonial-1.jpg"
-            alt="Testimonio 1"
-            width={60}
-            height={60}
-            class="rounded-full w-12 h-12 sm:w-14 sm:h-14 object-cover"
-          />
-          <div class="ml-4">
-            <h4 class="font-opensauce font-bold text-base sm:text-lg">
-              Laura M.
-            </h4>
-            <div class="text-coral">
-              <i class="fas fa-star text-sm sm:text-base"></i>
-              <i class="fas fa-star text-sm sm:text-base"></i>
-              <i class="fas fa-star text-sm sm:text-base"></i>
-              <i class="fas fa-star text-sm sm:text-base"></i>
-              <i class="fas fa-star text-sm sm:text-base"></i>
-            </div>
-          </div>
-        </div>
-        <p class="italic font-agrandir text-gray-700 text-sm sm:text-base">
-          "Después de 3 meses siguiendo el método byVivifit, no solo he notado
-          cambios en mis glúteos, sino en todo mi cuerpo. ¡La mejor inversión
-          que he hecho!"
-        </p>
-      </div>
-      <!-- Otros testimonios con el mismo patrón -->
+      <TestimonialCard
+        client:visible
+        name="Gloriannys"
+        text="Lo que enseñaste en el reto cambió mi vida, me vi todos los videos en un fin de semana, ver tus clases fue mi Netflix, quedé sorprendida con todo lo que aprendí, de repente todo me hizo CLICK! Gracias Vivi, GRACIAS INFINITAS, tu reto se robó mi corazón y yo le regalé 10 kilos."
+        delay={0}
+      />
+      
+      <TestimonialCard
+        client:visible
+        name="Maria S."
+        text="Para mí, la educación que entregas en el reto es INVALUABLE. Es increíble que logré estos resultados y comí MÁS QUE NUNCA, hice cardio solo 5 veces durante las 8 semanas y AME entrenar repitiendo los ejercicios durante 4 semanas. De verdad que la educación es la clave de este reto."
+        delay={0.2}
+      />
+      
+      <TestimonialCard
+        client:visible
+        name="Jessica"
+        text="LO AMEEEE TODO! Me despierto cada mañana sintiéndome maravillosa, sintiéndome segura de mi misma, sin miedo a comer y llegando al gym directo a entrenar, sintiéndome fuerte y poderosa. EL MÉTODO FUE EL MEJOR RETO QUE HE PODIDO ADQUIRIR EN MI VIDA! nunca me había sentido tan segura en mi propia piel. GRACIAS POR CREAR ESTE RETO VIVI!"
+        delay={0.4}
+      />
     </div>
   </div>
 </section>
