@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import CallToAction from '../components/common/CallToAction.astro';
 import FeatureCard from '../components/FeatureCard';
+import ProgramFeatureCard from '../components/ProgramFeatureCard';
 ---
 
 <Layout title="El Método - Programa de Transformación de 6 Semanas">
@@ -33,13 +34,13 @@ import FeatureCard from '../components/FeatureCard';
             </a>
           </div>
         </div>
-        <div class="w-full lg:w-1/2 px-4 sm:px-8 lg:px-0">
+        <div class="w-full lg:w-1/2 px-4 sm:px-8 lg:px-0 flex lg:justify-end justify-center">
           <Image 
             src="https://res.cloudinary.com/dhzl31kb8/image/upload/v1744212953/IMG_0626_jskztk.jpg" 
             alt="El Método byVivifit" 
             width={600} 
             height={600} 
-            class="rounded-lg shadow-xl w-full max-w-md mx-auto"
+            class="rounded-lg shadow-xl w-2/3 md:w-3/4 lg:w-auto max-w-xs lg:max-w-sm object-cover"
           />
         </div>
       </div>
@@ -114,64 +115,52 @@ import FeatureCard from '../components/FeatureCard';
     </div>
   </section>
 
-  <!-- Program Features -->
-  <section class="py-12 lg:py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-opensauce font-bold text-center mb-8 lg:mb-12">
-        ¿Qué incluye el programa?
-      </h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
-        <div class="bg-white p-8 rounded-lg shadow-md">
-          <div class="flex items-start">
-            <div class="text-coral text-2xl mr-4">
-              <i class="fas fa-mobile-alt"></i>
-            </div>
-            <div>
-              <h3 class="text-xl font-opensauce font-bold mb-2">App Move with Vi</h3>
-              <p class="font-agrandir text-gray-700">Acceso completo a la app con planes de entrenamiento, guías nutricionales y seguimiento de progreso.</p>
-            </div>
-          </div>
-        </div>
+<!-- Program Features -->
+<section class="py-12 lg:py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-opensauce font-bold text-center mb-8 lg:mb-12">
+      ¿Qué incluye el programa?
+    </h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
+      <ProgramFeatureCard 
+        icon="fa-mobile-alt"
+        title="App Move with Vi"
+        description="Acceso completo a la app con planes de entrenamiento, guías nutricionales y seguimiento de progreso."
+        delay={0.1}
+        fromLeft={true}
+        client:visible
+      />
 
-        <div class="bg-white p-8 rounded-lg shadow-md">
-          <div class="flex items-start">
-            <div class="text-coral text-2xl mr-4">
-              <i class="fas fa-video"></i>
-            </div>
-            <div>
-              <h3 class="text-xl font-opensauce font-bold mb-2">Biblioteca de Ejercicios</h3>
-              <p class="font-agrandir text-gray-700">Videos detallados de cada ejercicio con explicaciones técnicas y variaciones según tu nivel.</p>
-            </div>
-          </div>
-        </div>
+      <ProgramFeatureCard 
+        icon="fa-video"
+        title="Biblioteca de Ejercicios"
+        description="Videos detallados de cada ejercicio con explicaciones técnicas y variaciones según tu nivel."
+        delay={0.2}
+        fromLeft={false}
+        client:visible
+      />
 
-        <div class="bg-white p-8 rounded-lg shadow-md">
-          <div class="flex items-start">
-            <div class="text-coral text-2xl mr-4">
-              <i class="fas fa-calculator"></i>
-            </div>
-            <div>
-              <h3 class="text-xl font-opensauce font-bold mb-2">Calculadora de Macros</h3>
-              <p class="font-agrandir text-gray-700">Herramienta personalizada para calcular tus necesidades nutricionales específicas.</p>
-            </div>
-          </div>
-        </div>
+      <ProgramFeatureCard 
+        icon="fa-calculator"
+        title="Calculadora de Macros"
+        description="Herramienta personalizada para calcular tus necesidades nutricionales específicas."
+        delay={0.3}
+        fromLeft={true}
+        client:visible
+      />
 
-        <div class="bg-white p-8 rounded-lg shadow-md">
-          <div class="flex items-start">
-            <div class="text-coral text-2xl mr-4">
-              <i class="fas fa-users"></i>
-            </div>
-            <div>
-              <h3 class="text-xl font-opensauce font-bold mb-2">Comunidad Privada</h3>
-              <p class="font-agrandir text-gray-700">Acceso a un grupo exclusivo para compartir experiencias y motivación con otras participantes.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ProgramFeatureCard 
+        icon="fa-users"
+        title="Comunidad Privada"
+        description="Acceso a un grupo exclusivo para compartir experiencias y motivación con otras participantes."
+        delay={0.4}
+        fromLeft={false}
+        client:visible
+      />
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Is This For You? -->
   <section class="py-12 lg:py-16 bg-white">

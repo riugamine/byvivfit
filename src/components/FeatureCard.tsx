@@ -20,7 +20,7 @@ export default function FeatureCard({ icon, title, description, delay = 0, child
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: delay }}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.05 }}  
     >
       <div className="text-center mb-6">
         <div className="w-16 h-16 bg-coral/10 rounded-full flex items-center justify-center mx-auto mb-4">
