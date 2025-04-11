@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import CallToAction from '../components/common/CallToAction.astro';
+import FeatureCard from '../components/FeatureCard';
 ---
 
 <Layout title="El Método - Programa de Transformación de 6 Semanas">
@@ -34,7 +35,7 @@ import CallToAction from '../components/common/CallToAction.astro';
         </div>
         <div class="w-full lg:w-1/2 px-4 sm:px-8 lg:px-0">
           <Image 
-            src="/images/metodo-hero.jpg" 
+            src="https://res.cloudinary.com/dhzl31kb8/image/upload/v1744212953/IMG_0626_jskztk.jpg" 
             alt="El Método byVivifit" 
             width={600} 
             height={600} 
@@ -53,15 +54,14 @@ import CallToAction from '../components/common/CallToAction.astro';
       </h2>
       
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
-        <div class="bg-white rounded-xl p-6 transform hover:scale-105 transition-transform duration-300 hover:shadow-lg border border-gray-100">
-          <div class="text-center mb-6">
-            <div class="w-16 h-16 bg-coral/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <i class="fas fa-bolt text-3xl text-coral"></i>
-            </div>
-            <h3 class="text-xl font-opensauce font-bold mb-3">Energía Todo el Día</h3>
-            <p class="font-agrandir text-gray-700">Optimiza tu nutrición y entrena de forma inteligente para mantener tu energía al máximo.</p>
-          </div>
-          <ul class="space-y-2 font-agrandir text-gray-600 text-sm">
+        <FeatureCard 
+          icon="fa-bolt" 
+          title="Energía Todo el Día" 
+          description="Optimiza tu nutrición y entrena de forma inteligente para mantener tu energía al máximo."
+          delay={0.1}
+          client:visible
+        >
+          <ul class="space-y-2 font-agrandir text-gray-600 text-sm mt-4">
             <li class="flex items-center">
               <i class="fas fa-check text-coral mr-2"></i>
               <span>Mayor vitalidad diaria</span>
@@ -71,17 +71,16 @@ import CallToAction from '../components/common/CallToAction.astro';
               <span>Mejor calidad de sueño</span>
             </li>
           </ul>
-        </div>
+        </FeatureCard>
         
-        <div class="bg-white rounded-xl p-6 transform hover:scale-105 transition-transform duration-300 hover:shadow-lg border border-gray-100">
-          <div class="text-center mb-6">
-            <div class="w-16 h-16 bg-coral/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <i class="fas fa-dumbbell text-3xl text-coral"></i>
-            </div>
-            <h3 class="text-xl font-opensauce font-bold mb-3">Cuerpo Fuerte y Definido</h3>
-            <p class="font-agrandir text-gray-700">Desarrolla un físico atlético sin dietas restrictivas ni rutinas confusas.</p>
-          </div>
-          <ul class="space-y-2 font-agrandir text-gray-600 text-sm">
+        <FeatureCard 
+          icon="fa-dumbbell" 
+          title="Cuerpo Fuerte y Definido" 
+          description="Desarrolla un físico atlético sin dietas restrictivas ni rutinas confusas."
+          delay={0.2}
+          client:visible
+        >
+          <ul class="space-y-2 font-agrandir text-gray-600 text-sm mt-4">
             <li class="flex items-center">
               <i class="fas fa-check text-coral mr-2"></i>
               <span>Aumento de fuerza</span>
@@ -91,17 +90,16 @@ import CallToAction from '../components/common/CallToAction.astro';
               <span>Mejor composición corporal</span>
             </li>
           </ul>
-        </div>
+        </FeatureCard>
         
-        <div class="bg-white rounded-xl p-6 transform hover:scale-105 transition-transform duration-300 hover:shadow-lg border border-gray-100">
-          <div class="text-center mb-6">
-            <div class="w-16 h-16 bg-coral/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <i class="fas fa-heart text-3xl text-coral"></i>
-            </div>
-            <h3 class="text-xl font-opensauce font-bold mb-3">Hábitos Sostenibles</h3>
-            <p class="font-agrandir text-gray-700">Aprende a mantener resultados a largo plazo con un estilo de vida equilibrado.</p>
-          </div>
-          <ul class="space-y-2 font-agrandir text-gray-600 text-sm">
+        <FeatureCard 
+          icon="fa-heart" 
+          title="Hábitos Sostenibles" 
+          description="Aprende a mantener resultados a largo plazo con un estilo de vida equilibrado."
+          delay={0.3}
+          client:visible
+        >
+          <ul class="space-y-2 font-agrandir text-gray-600 text-sm mt-4">
             <li class="flex items-center">
               <i class="fas fa-check text-coral mr-2"></i>
               <span>Rutinas consistentes</span>
@@ -111,7 +109,7 @@ import CallToAction from '../components/common/CallToAction.astro';
               <span>Relación saludable con la comida</span>
             </li>
           </ul>
-        </div>
+        </FeatureCard>
       </div>
     </div>
   </section>
