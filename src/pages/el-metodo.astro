@@ -5,6 +5,16 @@ import CallToAction from '../components/common/CallToAction.astro';
 import FeatureCard from '../components/FeatureCard';
 import ProgramFeatureCard from '../components/ProgramFeatureCard';
 import TransformationModal from '../components/TransformationModal';
+
+// Define the images as direct URLs
+const transformationImages = {
+  mariaS: "https://res.cloudinary.com/dhzl31kb8/image/upload/v1744502400/IMG_0447_bi6eww.jpg",
+  gloriannys: "https://res.cloudinary.com/dhzl31kb8/image/upload/v1744502384/IMG_0416_dieu39.jpg",
+  jessica: "https://res.cloudinary.com/dhzl31kb8/image/upload/v1744502378/IMG_0445_jbu7rh.jpg",
+  alejandra: "https://res.cloudinary.com/dhzl31kb8/image/upload/v1744502375/IMG_9696_l7c5cg.jpg",
+  mariaB: "https://res.cloudinary.com/dhzl31kb8/image/upload/v1744506020/IMG_0038_cqqdm5.jpg",
+  yusmila: "https://res.cloudinary.com/dhzl31kb8/image/upload/v1744506039/IMG_0674_jhd0au.jpg"
+};
 ---
 
 <Layout title="El Método - Programa de Transformación de 6 Semanas">
@@ -221,39 +231,39 @@ import TransformationModal from '../components/TransformationModal';
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
       <TransformationModal 
         client:visible
-        image="https://res.cloudinary.com/dhzl31kb8/image/upload/v1744502400/IMG_0447_bi6eww.jpg"
+        image={transformationImages.mariaS}
         name="Maria S."
-        testimony="Para mí, la educación que entregas en el reto es INVALUABLE. Es increíble que logré estos resultados y comí MÁS QUE NUNCA, hice cardio solo 5 veces durante las 8 semanas y AME entrenar repitiendo los ejercicios durante 4 semanas. De verdad que la educación es la clave de este reto."
+        testimony="Para mí, la educación que entregas en el reto es INVALUABLE..."
       />
       
       <TransformationModal 
         client:visible
-        image="https://res.cloudinary.com/dhzl31kb8/image/upload/v1744502384/IMG_0416_dieu39.jpg"
+        image={transformationImages.gloriannys}
         name="Gloriannys"
         testimony="Lo que enseñaste en el reto cambió mi vida, me vi todos los videos en un fin de semana, ver tus clases fue mi Netflix, quedé sorprendida con todo lo que aprendí, de repente todo me hizo CLICK! Gracias Vivi, GRACIAS INFINITAS, tu reto se robó mi corazón y yo le regalé 10 kilos."
       />
       
       <TransformationModal 
         client:visible
-        image="https://res.cloudinary.com/dhzl31kb8/image/upload/v1744502378/IMG_0445_jbu7rh.jpg"
+        image={transformationImages.jessica}
         name="Jessica"
         testimony="LO AMEEEE TODO! Me despierto cada mañana sintiéndome maravillosa, sintiéndome segura de mi misma, sin miedo a comer y llegando al gym directo a entrenar, sintiéndome fuerte y poderosa. EL MÉTODO FUE EL MEJOR RETO QUE HE PODIDO ADQUIRIR EN MI VIDA! nunca me había sentido tan segura en mi propia piel. GRACIAS POR CREAR ESTE RETO VIVI!"
       />
       <TransformationModal 
       client:visible
-      image="https://res.cloudinary.com/dhzl31kb8/image/upload/v1744502375/IMG_9696_l7c5cg.jpg"
+      image={transformationImages.alejandra}
       name="Alejandra Q"
       testimony="El método cambio mi vida!!! No puedo ceer mi cintura, como se me marcan mis abs arriba, mis brazos mis nalgas. Gracias por estar en mi vida VIVI! De verdad lo que enseñas vale oro y que seas tan generosa de enseñarlo es lo que te hace aún más especial."
     />
     <TransformationModal 
     client:visible
-    image="https://res.cloudinary.com/dhzl31kb8/image/upload/v1744506020/IMG_0038_cqqdm5.jpg"
+    image={transformationImages.mariaB}
     name="Maria B."
     testimony="Aprender a comer lo que quiera siempre cumpliendo tus calorías necesariasm la disposición de Vivi al siempre querer enseñar y reponder todas las preguntas y tambien la motivación del grupo! Es un método bueniismo, aprender a moverte siempre, el poder preguntar tantas cosas y tener respuesta es lo mejor."
   />
   <TransformationModal 
   client:visible
-  image="https://res.cloudinary.com/dhzl31kb8/image/upload/v1744506039/IMG_0674_jhd0au.jpg"
+  image={transformationImages.yusmila}
   name="Yusmila L."
   testimony="AME TODO, totalmente todo, TODITO. Aprender a desarrollar mi propia dieta con cosas que a mi me gustan, volver a comer alimentos que había dejado de comer por miedo, aprender los macros fue algo transcendental en mi vida quedé sorprendida de tantas cosas que enseñas. La educación que entregas vale el triple de lo que pagué."
 />
