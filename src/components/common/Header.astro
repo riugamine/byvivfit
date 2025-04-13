@@ -10,6 +10,7 @@ import { Image } from 'astro:assets';
         alt="byVivifit Logo" 
         width={120} 
         height={40} 
+        loading="eager"
         class="w-24 md:w-[120px] h-auto"
       />
     </a>
@@ -24,19 +25,34 @@ import { Image } from 'astro:assets';
     </nav>
     
     <div class="hidden lg:flex items-center space-x-4">
-      <a href="https://www.instagram.com/byvivifit/" target="_blank" rel="noopener noreferrer" class="text-black hover:text-coral transition duration-300">
-        <i class="fab fa-instagram text-xl"></i>
-      </a>
-      <a href="https://www.tiktok.com/@byvivifit" target="_blank" rel="noopener noreferrer" class="text-black hover:text-coral transition duration-300">
-        <i class="fab fa-tiktok text-xl"></i>
-      </a>
-      <a href="https://app.byvivifit.com" class="bg-coral text-white px-4 py-2 rounded-full font-opensauce font-bold hover:bg-salmon transition duration-300">
-        Comprar Ahora
-      </a>
+      <a 
+      href="https://www.instagram.com/byvivifit/" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="text-black hover:text-coral transition duration-300"
+      aria-label="Síguenos en Instagram"
+    >
+      <i class="fab fa-instagram text-xl" aria-hidden="true"></i>
+    </a>
+    <a 
+      href="https://www.tiktok.com/@byvivifit" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="text-black hover:text-coral transition duration-300"
+      aria-label="Síguenos en TikTok"
+    >
+      <i class="fab fa-tiktok text-xl" aria-hidden="true"></i>
+    </a>
     </div>
     
-    <button class="lg:hidden text-black p-2" id="mobile-menu-button" aria-label="Menu">
-      <div class="hamburger-menu">
+    <button 
+      class="lg:hidden text-black p-2" 
+      id="mobile-menu-button" 
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <div class="hamburger-menu" aria-hidden="true">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
@@ -58,12 +74,24 @@ import { Image } from 'astro:assets';
       
       <div class="flex flex-col space-y-4">
         <div class="flex justify-center space-x-6">
-          <a href="https://www.instagram.com/byvivifit/" target="_blank" rel="noopener noreferrer" class="text-black hover:text-coral transition duration-300">
-            <i class="fab fa-instagram text-2xl"></i>
-          </a>
-          <a href="https://www.tiktok.com/@byvivifit" target="_blank" rel="noopener noreferrer" class="text-black hover:text-coral transition duration-300">
-            <i class="fab fa-tiktok text-2xl"></i>
-          </a>
+          <a 
+          href="https://www.instagram.com/byvivifit/" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="text-black hover:text-coral transition duration-300"
+          aria-label="Síguenos en Instagram"
+        >
+          <i class="fab fa-instagram text-xl" aria-hidden="true"></i>
+        </a>
+        <a 
+          href="https://www.tiktok.com/@byvivifit" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="text-black hover:text-coral transition duration-300"
+          aria-label="Síguenos en TikTok"
+        >
+          <i class="fab fa-tiktok text-xl" aria-hidden="true"></i>
+        </a>
         </div>
         <a href="https://app.byvivifit.com" class="bg-coral text-white px-6 py-3 rounded-full font-opensauce font-bold hover:bg-salmon transition duration-300 text-center">
           Comprar Ahora

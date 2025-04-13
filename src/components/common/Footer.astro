@@ -19,24 +19,26 @@ import { Image } from "astro:assets";
           Transformando vidas a través del entrenamiento especializado y
           nutrición personalizada.
         </p>
-        <div class="flex space-x-6 mt-6">
-          <a
-            title="byVivifit en instagram"
-            href="https://www.instagram.com/byvivifit/"
-            target="_blank"
+        <div class="flex space-x-4 mt-4">
+          <a 
+            href="https://www.instagram.com/byvivifit/" 
+            target="_blank" 
             rel="noopener noreferrer"
             class="text-white hover:text-coral transition duration-300"
+            aria-label="Síguenos en Instagram"
           >
-            <i class="fab fa-instagram text-2xl md:text-3xl"></i>
+            <i class="fab fa-instagram text-xl" aria-hidden="true"></i>
+            <span class="sr-only">Instagram</span>
           </a>
-          <a
-            title="byVivifit en Tiktok"
-            href="https://www.tiktok.com/@byvivifit"
-            target="_blank"
+          <a 
+            href="https://www.tiktok.com/@byvivifit" 
+            target="_blank" 
             rel="noopener noreferrer"
             class="text-white hover:text-coral transition duration-300"
+            aria-label="Síguenos en TikTok"
           >
-            <i class="fab fa-tiktok text-2xl md:text-3xl"></i>
+            <i class="fab fa-tiktok text-xl" aria-hidden="true"></i>
+            <span class="sr-only">TikTok</span>
           </a>
         </div>
       </div>

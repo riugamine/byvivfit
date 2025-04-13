@@ -20,87 +20,65 @@ export default function PageLoader() {
     const loader = loaderRef.current;
 
     if (loader) {
-      // Define the loading sequence
       const loadingSequence = async () => {
         try {
-          // 1. Animate the line growing
-          lineHeight.set(0);
-          const lineAnim = animate(
-              lineHeight, 
-            // @ts-ignore - TypeScript tiene problemas con la sobrecarga pero esto funciona
-            100, 
-            { duration: 1.5, easing: "ease-in-out" }
-          );
-          await lineAnim.finished;
-
-          // 2. Small pause
-          await new Promise(resolve => setTimeout(resolve, 300));
-          
-          // Hide the line before panels split
-          const lineElement = document.querySelector('[data-line-element]');
-          if (lineElement instanceof HTMLElement) {
-            lineElement.style.opacity = '0';
-          }
-
-          // 3. Split the panels
-          const leftAnim = animate(
-              leftPanelX, 
-            // @ts-ignore - Ignoramos el error de TypeScript
-            -100, 
-            { duration: 0.8, easing: "ease-in-out" }
-          );
-          
-          const rightAnim = animate(
-              rightPanelX, 
-            // @ts-ignore - Ignoramos el error de TypeScript
-            100, 
-            { duration: 0.8, easing: "ease-in-out" }
-          );
-          
-          await Promise.all([leftAnim.finished, rightAnim.finished]);
-
-          // 4. Hide the loader
-          loader.style.display = "none";
-          
-          // 5. Animate content appearing
-          document.querySelectorAll('.content-reveal').forEach((element, index) => {
-            if (element instanceof HTMLElement) {
-              
-              animate(
-                element,
-                {
-                    // @ts-ignore - TypeScript tiene problemas con esta sobrecarga
-                  opacity: [0, 1],
-                  y: [20, 0]
-                },
-                { 
-                  duration: 0.5, 
-                  delay: 0.1 * index,
-                  easing: "ease-out"
+          // Modified loading progress tracking
+          let progress = 0;
+          const updateProgress = () => {
+            if (progress < 100) {
+              progress += 2; // Increment progress smoothly
+              lineHeight.set(progress);
+              requestAnimationFrame(updateProgress);
+            } else {
+              // Continue with split animation
+              setTimeout(async () => {
+                const lineElement = document.querySelector('[data-line-element]');
+                if (lineElement instanceof HTMLElement) {
+                  lineElement.style.opacity = '0';
                 }
-              );
+                // @ts-ignore
+                const leftAnim = animate(leftPanelX, -100, { 
+                  duration: 0.8, 
+                  easing: "ease-in-out" 
+                });
+                // @ts-ignore
+                const rightAnim = animate(rightPanelX, 100, { 
+                  duration: 0.8, 
+                  easing: "ease-in-out" 
+                });
+                
+                await Promise.all([leftAnim.finished, rightAnim.finished]);
+                loader.style.display = "none";
+
+                // Reveal content
+                document.querySelectorAll('.content-reveal').forEach((element, index) => {
+                  if (element instanceof HTMLElement) {
+                    animate(element, {
+                      // @ts-ignore
+                      opacity: [0, 1],
+                      y: [20, 0]
+                    }, { 
+                      duration: 0.5, 
+                      delay: 0.1 * index,
+                      easing: "ease-out"
+                    });
+                  }
+                });
+              }, 300);
             }
-          });
+          };
+
+          // Start the progress animation
+          updateProgress();
+
         } catch (error) {
           console.error("Error in loading animation:", error);
-          // Fallback: hide loader if animation fails
           loader.style.display = "none";
         }
       };
 
-      // Start the animation when the page is loaded
-      const runAnimation = () => {
-        requestAnimationFrame(() => {
-          loadingSequence();
-        });
-      };
-
-      if (document.readyState === "complete") {
-        runAnimation();
-      } else {
-        window.addEventListener("load", runAnimation);
-        return () => window.removeEventListener("load", runAnimation);
-      }
+      // Start the animation when component mounts
+      loadingSequence();
     }
   }, []);
 
