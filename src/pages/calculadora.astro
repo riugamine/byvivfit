@@ -152,21 +152,24 @@ import CallToAction from "../components/common/CallToAction.astro";
                 <select id="grasa" class="w-full p-3 border rounded-lg">
                   <option value="">Selecciona tu porcentaje</option>
                   <optgroup label="Mujeres">
-                    <option value="10">10-12% - Atlética</option>
-                    <option value="15">15-17% - Fitness</option>
-                    <option value="20">20-22% - Saludable</option>
-                    <option value="25">25% - Normal</option>
-                    <option value="30">30% - Por encima del promedio</option>
-                    <option value="35">35% o más - Alto</option>
+                    <option value="14">12-14% - Atlética</option>
+                    <option value="17">15-17% - Fitness</option>
+                    <option value="20">18-20% - Saludable</option>
+                    <option value="23">21%-23% -  Normal</option>
+                    <option value="26">24%-26% Por encima del promedio</option>
+                    <option value="29">27%-29% No saludable</option>
+                    <option value="30">30% o más - Alto</option>
                   </optgroup>
                   <optgroup label="Hombres">
-                    <option value="3">3-4% - Competición</option>
-                    <option value="6">6-7% - Atlético</option>
-                    <option value="10">10-12% - Fitness</option>
-                    <option value="15">15% - Saludable</option>
-                    <option value="20">20% - Normal</option>
+                    <option value="5">4-5% - Competición</option>
+                    <option value="7">6-7% - Atlético</option>
+                    <option value="10">8-10% - Fitness</option>
+                    <option value="11">11%-12% - Saludable</option>
+                    <option value="15">13%-15% - Normal</option>
+                    <option value="19">16%-19% - Por encima del promedio</option>
+                    <option value="24">20%-24% - Alto</option>
                     <option value="25"
-                      >25% o más - Por encima del promedio</option
+                      >25% o más - No saludable </option
                     >
                   </optgroup>
                 </select>
@@ -286,11 +289,11 @@ import CallToAction from "../components/common/CallToAction.astro";
   const FACTORES_OBJETIVO: ObjetivoFactores = {
     mantenimiento: 1,
     deficit_ligero: 0.85,
-    deficit_moderado: 0.8,
-    deficit_extremo: 0.7,
-    aumento_ligero: 1,
+    deficit_moderado: 0.80,
+    deficit_extremo: 0.70,
+    aumento_ligero: 1.10,
     aumento_moderado: 1.05,
-    aumento_extremo: 1.1,
+    aumento_extremo: 1.10,
   };
 
   const FACTORES_GRASA: ObjetivoFactores = {
@@ -305,28 +308,55 @@ import CallToAction from "../components/common/CallToAction.astro";
   };
 
   const calcularTMB = (masaMagra: number): number => {
-    return 370 + 21.6 * masaMagra;
+    return 370 + (21.6 * masaMagra);
   };
 
   const calcularCalorias = (
     tmb: number,
     actividad: string,
-    objetivo: string
+    objetivo: string,
+    sexo: string
   ): number => {
-    const mantenimiento: number = tmb * parseFloat(actividad);
-    return Math.round(mantenimiento * FACTORES_OBJETIVO[objetivo]);
-  };
+    // 1. Primero aplicamos el ajuste por sexo al TMB
+    let caloriasTMB = tmb;
+    if (sexo === "femenino") {
+      caloriasTMB -= 160;
+    } else if (sexo === "masculino") {
+      caloriasTMB += 5;
+    }
+  
+  // 2. Aplicamos el factor de actividad
+  const caloriasConActividad = caloriasTMB * parseFloat(actividad);
+  
+    // 3. Finalmente aplicamos el objetivo para obtener el déficit o superávit
+    return Math.round(caloriasConActividad * FACTORES_OBJETIVO[objetivo]);
+};
 
   const calcularMacros = (
     peso: number,
     calorias: number,
     objetivo: string
   ): Macros => {
-    const proteina: number = Math.round(peso * 2.4);
-    const grasa: number = Math.round(peso * FACTORES_GRASA.moderado_en_grasas);
-    const caloriasRestantes: number = calorias - proteina * 4 - grasa * 9;
-    const carbos: number = Math.round(caloriasRestantes / 4);
-
+    // Proteínas: 2.4g por kg de peso corporal
+    const proteina = Math.round(peso * 2.4);
+    
+    // Grasas: varían según el objetivo
+    let factorGrasa = 0.8; // Balanceado por defecto
+    
+    if (objetivo.includes('deficit')) {
+      factorGrasa = 1.0; // Moderado en grasas para déficit
+    } else if (objetivo.includes('aumento')) {
+      factorGrasa = 1.2; // Alto en grasas para aumento
+    }
+    
+    const grasa = Math.round(peso * factorGrasa);
+    
+    // Carbohidratos: calorías restantes
+    const caloriasProteinas = proteina * 4;
+    const caloriasGrasas = grasa * 9;
+    const caloriasRestantes = calorias - caloriasProteinas - caloriasGrasas;
+    const carbos = Math.round(caloriasRestantes / 4);
+  
     return { proteina, grasa, carbos };
   };
 
@@ -469,40 +499,35 @@ import CallToAction from "../components/common/CallToAction.astro";
 
   // Event Listeners
   const calcularBtn = document.getElementById("calcularBtn");
-  const sexoSelect = document.getElementById("sexo") as HTMLSelectElement;
-  const referenciaImagen = document.getElementById("referenciaImagen") as HTMLImageElement;
-  const placeholderText = document.getElementById("placeholderText");
-
-  if (sexoSelect && referenciaImagen && placeholderText) {
-    actualizarImagenReferencia(sexoSelect.value);
-    
-    sexoSelect.addEventListener("change", () => {
-      actualizarImagenReferencia(sexoSelect.value);
-    });
-  }
-
-  function actualizarImagenReferencia(sexo: string) {
+  document.addEventListener('DOMContentLoaded', () => {
+    const sexoSelect = document.getElementById("sexo") as HTMLSelectElement;
     const placeholderText = document.getElementById("placeholderText");
     const imagenHombre = document.getElementById("imagenHombre");
     const imagenMujer = document.getElementById("imagenMujer");
-  
-    if (!sexo) {
-      placeholderText?.classList.remove('hidden');
-      imagenHombre?.classList.add('hidden');
-      imagenMujer?.classList.add('hidden');
-      return;
+
+    if (sexoSelect) {
+      sexoSelect.addEventListener("change", () => {
+        const sexo = sexoSelect.value;
+        
+        if (!sexo) {
+          placeholderText?.classList.remove('hidden');
+          imagenHombre?.classList.add('hidden');
+          imagenMujer?.classList.add('hidden');
+          return;
+        }
+
+        placeholderText?.classList.add('hidden');
+        
+        if (sexo === "masculino") {
+          imagenHombre?.classList.remove('hidden');
+          imagenMujer?.classList.add('hidden');
+        } else if (sexo === "femenino") {
+          imagenHombre?.classList.add('hidden');
+          imagenMujer?.classList.remove('hidden');
+        }
+      });
     }
-  
-    placeholderText?.classList.add('hidden');
-    
-    if (sexo === "masculino") {
-      imagenHombre?.classList.remove('hidden');
-      imagenMujer?.classList.add('hidden');
-    } else {
-      imagenHombre?.classList.add('hidden');
-      imagenMujer?.classList.remove('hidden');
-    }
-  }
+
 
   if (calcularBtn) {
     calcularBtn.addEventListener("click", (e: Event) => {
@@ -516,6 +541,7 @@ import CallToAction from "../components/common/CallToAction.astro";
       }
 
       // Get form elements
+      const sexoSelect = document.getElementById("sexo") as HTMLSelectElement;
       const pesoInput = document.getElementById("peso") as HTMLInputElement;
       const alturaInput = document.getElementById("altura") as HTMLInputElement;
       const edadInput = document.getElementById("edad") as HTMLInputElement;
@@ -524,12 +550,13 @@ import CallToAction from "../components/common/CallToAction.astro";
       const objetivoSelect = document.getElementById("objetivo") as HTMLSelectElement;
 
       // Validate all required fields are filled
-      if (!pesoInput.value || !alturaInput.value || !edadInput.value || !grasaSelect.value) {
+      if (!sexoSelect.value || !pesoInput.value || !alturaInput.value || !edadInput.value || !grasaSelect.value) {
         alert("Por favor completa todos los campos requeridos");
         return;
       }
 
       // Parse values
+      const sexo = sexoSelect.value;
       const peso = parseFloat(pesoInput.value);
       const altura = parseFloat(alturaInput.value);
       const edad = parseFloat(edadInput.value);
@@ -564,9 +591,40 @@ import CallToAction from "../components/common/CallToAction.astro";
       }
 
       const masaMagra = calcularMasaMagra(peso, grasa);
+      console.log('🏋️ Masa Magra:', masaMagra, 'kg');
+
       const tmb = calcularTMB(masaMagra);
-      const calorias = calcularCalorias(tmb, actividad, objetivo);
+      console.log('🔥 TMB (Tasa Metabólica Basal):', tmb, 'kcal');
+
+      const calorias = calcularCalorias(tmb, actividad, objetivo, sexo);
+      console.log('📊 Detalles del cálculo de calorías:', {
+        tmb,
+        factorActividad: actividad,
+        objetivo,
+        sexo,
+        ajusteSexo: sexo === "femenino" ? "-160" : "+5",
+        caloriasFinal: calorias
+      });
+
       const macros = calcularMacros(peso, calorias, objetivo);
+      console.log('🍖 Detalles de macros:', {
+        peso,
+        calorias,
+        objetivo,
+        proteina: {
+          gramos: macros.proteina,
+          calorias: macros.proteina * 4
+        },
+        grasa: {
+          gramos: macros.grasa,
+          calorias: macros.grasa * 9
+        },
+        carbos: {
+          gramos: macros.carbos,
+          calorias: macros.carbos * 4
+        },
+        caloriasTotales: (macros.proteina * 4) + (macros.grasa * 9) + (macros.carbos * 4)
+      });
 
       mostrarResultados(calorias, macros);
     });
@@ -574,6 +632,7 @@ import CallToAction from "../components/common/CallToAction.astro";
 
   // Inicializar tooltips
   tippy("[data-tippy-content]");
+});
 </script>
 
 <style>
